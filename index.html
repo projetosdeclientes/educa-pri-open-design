@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f2e9">
+<link rel="canonical" href="https://educa-pri.lovable.app/">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 <title>Educa Pri — Materiais pedagógicos feitos com amor para ensinar</title>
 <meta name="description" content="Recursos digitais para alfabetização, leitura, produção textual e TDAH.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://educa-pri.lovable.app/">
+<meta property="og:title" content="Educa Pri — Materiais pedagógicos feitos com amor para ensinar">
+<meta property="og:description" content="Recursos digitais para alfabetização, leitura, produção textual e TDAH. Feitos com carinho.">
+<meta property="og:image" content="https://educa-pri.lovable.app/og-image.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Educa Pri — Materiais pedagógicos feitos com amor para ensinar">
+<meta name="twitter:description" content="Recursos digitais para alfabetização, leitura, produção textual e TDAH.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -14,13 +25,16 @@
   --bg: 40 60% 97%; --fg: 220 22% 22%; --surface: 0 0% 100%;
   --surface-alt: 42 55% 94%; --surface-warm: 38 70% 92%;
   --primary: 148 55% 42%; --primary-hover: 148 60% 36%;
-  --cta: 32 94% 52%; --cta-hover: 27 90% 46%;
-  --gold: 40 90% 55%; --gold-deep: 34 78% 45%;
+  --secondary: 38 88% 55%; --secondary-foreground: 30 40% 18%;
+  --cta: 32 94% 52%; --cta-hover: 27 90% 46%; --cta-foreground: 0 0% 100%; --cta-soft: 38 100% 92%;
+  --gold: 40 90% 55%; --gold-deep: 34 78% 45%; --gold-soft: 44 95% 72%;
   --highlight: 50 100% 72%; --ink: 220 22% 22%;
   --ink-muted: 220 14% 46%; --ink-soft: 220 10% 60%;
+  --muted: 40 30% 94%; --muted-foreground: 220 12% 48%;
   --accent: 148 45% 92%; --accent-fg: 148 55% 28%;
-  --border: 40 30% 86%; --brand-blue: 218 75% 42%;
-  --brand-pink: 340 82% 72%;
+  --border: 40 30% 86%; --input: 40 30% 86%; --ring: 148 55% 42%;
+  --brand-blue: 218 75% 42%; --brand-pink: 340 82% 72%;
+  --radius: 1rem;
   --shadow-xs: 0 1px 2px hsl(30 30% 20% / 0.05);
   --shadow-sm: 0 2px 6px hsl(30 30% 20% / 0.06);
   --shadow-md: 0 6px 18px hsl(30 30% 20% / 0.08);
@@ -29,8 +43,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Nunito,system-ui,sans-serif;background:hsl(var(--bg));color:hsl(var(--ink));-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11";line-height:1.6}
-h1,h2,h3,h4{font-family:Poppins,system-ui,sans-serif;letter-spacing:-0.01em}
+body{font-family:Nunito,system-ui,sans-serif;background:hsl(var(--bg));color:hsl(var(--ink));-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11";line-height:1.5}
+h1,h2,h3,h4{font-family:Poppins,system-ui,sans-serif;letter-spacing:-0.025em}
 ::selection{background:hsl(var(--highlight));color:hsl(var(--ink))}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
@@ -45,14 +59,11 @@ a{text-decoration:none;color:inherit}
 .w-4{width:16px}.w-5{width:20px}.w-6{width:24px}.w-7{width:28px}.h-4{height:16px}.h-5{height:20px}.h-6{height:24px}.h-7{height:28px}
 .hidden-lg{display:none!important}
 .visible-lg{display:flex!important}
-.reveal-cascade>.card-sticker{opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}
+.reveal-cascade>.card-sticker{opacity:0;transform:translateY(14px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
 .reveal-cascade>.card-sticker.is-visible{opacity:1;transform:translateY(0)}
-.reveal-cascade>.card-sticker:nth-child(1){transition-delay:0ms}
-.reveal-cascade>.card-sticker:nth-child(2){transition-delay:100ms}
-.reveal-cascade>.card-sticker:nth-child(3){transition-delay:200ms}
-.reveal-cascade>.card-sticker:nth-child(4){transition-delay:300ms}
-.reveal-cascade>.card-sticker:nth-child(5){transition-delay:400ms}
-.reveal-cascade>.card-sticker:nth-child(6){transition-delay:500ms}
+.reveal-cascade>.card-sticker:nth-child(3n+1){transition-delay:0ms}
+.reveal-cascade>.card-sticker:nth-child(3n+2){transition-delay:90ms}
+.reveal-cascade>.card-sticker:nth-child(3n+3){transition-delay:180ms}
 @media(min-width:1024px){.hidden-lg{display:flex!important}.visible-lg{display:none!important}}
 .bg-cream-gradient{background:radial-gradient(1200px 500px at 10% -10%,hsl(38 90% 88% / 0.55),transparent 60%),radial-gradient(900px 400px at 100% 0%,hsl(148 60% 88% / 0.45),transparent 60%),linear-gradient(180deg,hsl(var(--bg)) 0%,hsl(var(--surface-warm)) 100%)}
 .bg-warm-band{background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)}
@@ -67,6 +78,7 @@ a{text-decoration:none;color:inherit}
 .btn-sm{font-size:14px;padding:8px 16px;min-height:40px}
 .btn-md{font-size:16px;padding:12px 24px;min-height:48px}
 .btn-lg{font-size:16px;padding:16px 28px;min-height:56px}
+@media(min-width:640px){.btn-lg{font-size:18px}}
 .btn-primary{background:hsl(var(--cta));color:hsl(0 0% 100%);box-shadow:var(--shadow-md);text-decoration:none}
 .btn-primary:hover{background:hsl(var(--cta-hover));transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-secondary{background:hsl(var(--gold));color:hsl(var(--ink));box-shadow:var(--shadow-sm);text-decoration:none}
@@ -87,22 +99,20 @@ a{text-decoration:none;color:inherit}
 .animate-float-slow{animation:float-slow 6s ease-in-out infinite}
 .animate-wiggle{animation:wiggle 3s ease-in-out infinite}
 .animate-float-mock{animation:float-mock 7s ease-in-out infinite}
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal.is-visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .6s,transform .6s}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal-left.is-visible{opacity:1;transform:none}
-.reveal-right{opacity:0;transform:translateX(28px);transition:opacity .6s,transform .6s}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal-right.is-visible{opacity:1;transform:none}
-.reveal-zoom{opacity:0;transform:scale(.94);transition:opacity .55s,transform .55s}
+.reveal-zoom{opacity:0;transform:scale(.88);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
 .reveal-zoom.is-visible{opacity:1;transform:none}
+.reveal-blur{opacity:0;transform:scale(.96);filter:blur(4px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1),filter .7s cubic-bezier(.22,1,.36,1)}
+.reveal-blur.is-visible{opacity:1;transform:none;filter:blur(0)}
 @media(max-width:640px){.reveal-left,.reveal-right{transform:translateY(16px)}}
 .hover-lift{transition:transform .3s,box-shadow .3s}
 .hover-lift:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
-.mockup-3d{transform:perspective(1200px) rotateY(-9deg) rotateX(4deg);transition:transform .6s;filter:drop-shadow(0 26px 34px hsl(30 40% 25% / 0.28))}
-@media(max-width:767px){.mockup-3d{transform:none;filter:drop-shadow(0 14px 20px hsl(30 40% 25% / 0.22))}}
-.card-shine{background:linear-gradient(115deg,transparent 35%,hsl(0 0% 100% / 0.45) 50%,transparent 65%);background-size:250% 100%;background-position:130% 0;transition:background-position .8s;border-radius:inherit}
-.group:hover .card-shine{background-position:-30% 0}
-.header{position:sticky;top:0;z-index:40;width:100%;backdrop-filter:blur(12px);transition:.3s}
+.header{position:sticky;top:0;z-index:40;width:100%;backdrop-filter:blur(12px) saturate(1.8);transition:background .35s,box-shadow .35s,backdrop-filter .35s}
 .header-default{background:hsl(var(--bg)/0.7)}
 .header-scrolled{background:hsl(var(--bg)/0.85);box-shadow:var(--shadow-sm)}
 .page{display:none}
@@ -110,18 +120,61 @@ a{text-decoration:none;color:inherit}
 .section-eyebrow{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--accent));color:hsl(var(--accent-fg));font-size:14px;font-weight:600;padding:4px 12px;margin-bottom:16px}
 .section-title{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2}
 .section-subtitle{margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625}
-.accordion-item{border-radius:1.25rem;background:hsl(var(--surface));overflow:hidden;transition:box-shadow .3s;border:1px solid hsl(var(--border))}
-.accordion-item.open{box-shadow:var(--shadow-lg)}
+.accordion-item{border-radius:1.25rem;background:hsl(var(--surface));overflow:hidden;transition:box-shadow .35s cubic-bezier(.22,1,.36,1),border-color .35s;border:1px solid hsl(var(--border))}
+.accordion-item.open{box-shadow:var(--shadow-lg);border-color:transparent}
+.accordion-item.open .accordion-chevron{transform:rotate(180deg)}
 .accordion-trigger{width:100%;display:flex;align-items:flex-start;gap:12px;padding:20px 24px;font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:16px;text-align:left;cursor:pointer;background:none;border:none;color:hsl(var(--ink));transition:color .2s}
 .accordion-trigger:hover{color:hsl(var(--primary))}
-.accordion-content{overflow:hidden;max-height:0;transition:max-height .4s,opacity .3s;opacity:0}
+.accordion-content{overflow:hidden;max-height:0;transition:max-height .5s cubic-bezier(.22,1,.36,1),opacity .35s;opacity:0}
 .accordion-item.open .accordion-content{max-height:500px;opacity:1}
-.accordion-inner{padding:0 24px 20px 48px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625}
-@media(prefers-reduced-motion:reduce){.animate-float,.animate-float-slow,.animate-float-mock,.animate-wiggle,.btn-pulse-whatsapp,.btn-pulse-gold{animation:none!important}.mockup-3d{transform:none!important}.reveal,.reveal-left,.reveal-right,.reveal-zoom{opacity:1!important;transform:none!important;transition:none!important}}
+.accordion-inner{padding:0 24px 20px 56px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.6}
+@media(prefers-reduced-motion:reduce){.animate-float,.animate-float-slow,.animate-float-mock,.animate-wiggle,.btn-pulse-whatsapp,.btn-pulse-gold,.wa-pulse-el,.wa-pulse-el::after{animation:none!important}.mockup-3d{transform:none!important}.mockup-3d:hover{transform:none!important}.group:hover .card-shine{background-position:130% 0}.reveal,.reveal-left,.reveal-right,.reveal-zoom,.reveal-blur,.reveal-cascade>.card-sticker{opacity:1!important;transform:none!important;filter:blur(0)!important;transition:none!important}.hover-lift:hover{transform:none!important}.section-eyebrow{opacity:1!important;transform:none!important}}
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:hsl(var(--surface-warm))}
 ::-webkit-scrollbar-thumb{background:hsl(var(--gold)/0.35);border-radius:8px}
 ::-webkit-scrollbar-thumb:hover{background:hsl(var(--gold)/0.55)}
+.focus-ring:focus-visible{outline:2px solid hsl(var(--ring));outline-offset:2px;border-radius:9999px}
+a:focus-visible,.btn:focus-visible,.accordion-trigger:focus-visible{outline:2px solid hsl(var(--ring));outline-offset:2px;border-radius:9999px}
+.logo-ring:hover{transform:scale(1.04);box-shadow:0 0 0 3px hsl(var(--gold)/0.7),0 1px 2px hsl(30 30% 20% / 0.05)!important}
+.logo-ring{transition:transform .3s,box-shadow .3s}
+@media(min-width:1024px){#hero-grid{grid-template-columns:1fr 1fr!important}}
+@media(min-width:640px){#breve-grid{grid-template-columns:1fr 1fr 1fr!important}}
+.section-y{padding-top:96px;padding-bottom:96px}
+@media(max-width:640px){.section-y{padding-top:56px;padding-bottom:56px}}
+.section-head{margin-bottom:48px}
+@media(max-width:640px){.section-head{margin-bottom:36px}}
+.nav-item:hover{background:hsl(var(--accent));color:hsl(var(--accent-fg))}
+.nav-item.active{background:hsl(var(--gold-soft));color:hsl(var(--ink))}
+.mob-link{border-radius:12px!important;font-size:24px}
+.mob-link:hover{background:hsl(var(--accent));color:hsl(var(--accent-fg))}
+.mob-link.active{background:hsl(var(--gold-soft))}
+.product-card{border-radius:1.25rem;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+.tilt-3d{perspective:1200px}
+.tilt-item{transition:transform .3s}
+.mockup-3d{transform:perspective(1200px) rotateY(-9deg) rotateX(4deg);transition:transform .5s cubic-bezier(.22,1,.36,1),filter .5s;filter:drop-shadow(0 26px 34px hsl(30 40% 25% / 0.28))}
+.mockup-3d:hover{transform:perspective(1200px) rotateY(-5deg) rotateX(2deg) scale(1.02)}
+@media(max-width:767px){.mockup-3d{transform:none;filter:drop-shadow(0 14px 20px hsl(30 40% 25% / 0.22))}.mockup-3d:hover{transform:none}}
+.group:hover .mockup-3d{transition-delay:unset}
+.wa-fab{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+.wa-fab:hover{transform:scale(1.08)}
+.wa-pulse-el{position:relative}
+.wa-pulse-el::after{content:'';position:absolute;inset:-4px;border-radius:inherit;border:3px solid hsl(var(--primary)/0.4);animation:wa-pulse-ring 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes wa-pulse-ring{0%,100%{opacity:0;transform:scale(1)}30%{opacity:1}60%{opacity:0;transform:scale(1.25)}}
+.wa-tooltip{position:absolute;right:calc(100% + 14px);top:50%;transform:translateY(-50%);background:hsl(var(--ink));color:hsl(var(--surface));font-size:14px;font-weight:600;padding:8px 14px;border-radius:12px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;font-family:Nunito,system-ui,sans-serif}
+.wa-tooltip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:6px solid transparent;border-left-color:hsl(var(--ink))}
+.wa-fab-wrapper:hover .wa-tooltip{opacity:1}
+@media(max-width:640px){.wa-tooltip{display:none}}
+.footer-link{transition:color .2s}
+.footer-link:hover{color:hsl(var(--primary))}
+.footer-bottom{border-top:1px solid hsl(var(--gold)/0.4);padding-top:24px;margin-top:40px;text-align:center;font-size:14px;color:hsl(var(--ink-muted))}
+.contato-card{border-radius:1.25rem;padding:28px 24px;background:hsl(var(--surface));border:1px solid hsl(var(--border));box-shadow:var(--shadow-sm);text-align:center;transition:transform .3s,box-shadow .3s}
+.contato-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.contato-card .contato-icon{width:56px;height:56px;border-radius:9999px;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;transition:transform .3s}
+.contato-card:hover .contato-icon{transform:scale(1.1)}
+.back-link{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s}
+.back-link:hover{color:hsl(var(--cta));border-color:hsl(var(--cta)/0.6)}
+.contato-card:hover .contato-icon{transform:scale(1.15)}
 </style>
 </head>
 <body>
@@ -130,21 +183,21 @@ a{text-decoration:none;color:inherit}
 <header id="header" class="header header-default">
 <div class="container-site" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px">
 <a href="#/" class="group" style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-<img id="h-logo" src="assets/logo-educapri.jpg" alt="Logo" style="width:48px;height:48px;border-radius:9999px;transition:all .3s;box-shadow:0 1px 2px hsl(30 30% 20% / 0.05);outline:2px solid hsl(var(--gold)/0.4);outline-offset:-2px">
+<img id="h-logo" class="logo-ring" src="assets/logo-educapri.jpg" alt="Educa Pri" style="width:48px;height:48px;border-radius:9999px;box-shadow:0 0 0 2px hsl(var(--gold)/0.4),0 1px 2px hsl(30 30% 20% / 0.05)">
 <div id="h-brand" class="hidden-sm" style="display:none;line-height:1.2">
 <div style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:18px;color:hsl(var(--brand-blue))">Educa Pri</div>
 <div style="font-size:11px;color:hsl(var(--ink-muted));margin-top:-2px">Feito com amor para ensinar</div>
 </div>
 </a>
 <nav id="desktop-nav" class="hidden-lg" style="align-items:center;gap:4px">
-<a href="#/" class="nav-item" data-route="/" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Início</a>
-<a href="#/sobre" class="nav-item" data-route="/sobre" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Sobre Nós</a>
-<a href="#/produtos" class="nav-item" data-route="/produtos" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Produtos</a>
-<a href="#/faq" class="nav-item" data-route="/faq" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Perguntas</a>
-<a href="#/contato" class="nav-item" data-route="/contato" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Contato</a>
+<a href="#/" class="nav-item" data-route="/" style="padding:8px 14px;border-radius:9999px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s">Início</a>
+<a href="#/sobre" class="nav-item" data-route="/sobre" style="padding:8px 14px;border-radius:9999px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s">Sobre Nós</a>
+<a href="#/produtos" class="nav-item" data-route="/produtos" style="padding:8px 14px;border-radius:9999px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s">Produtos</a>
+<a href="#/faq" class="nav-item" data-route="/faq" style="padding:8px 14px;border-radius:9999px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s">Perguntas</a>
+<a href="#/contato" class="nav-item" data-route="/contato" style="padding:8px 14px;border-radius:9999px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s">Contato</a>
 </nav>
 <div id="desktop-cta" class="hidden-lg" style="align-items:center">
-<a href="#/produtos" class="btn btn-primary btn-md" style="text-decoration:none">Ver produtos</a>
+<a href="#/produtos" class="btn btn-primary btn-sm" style="text-decoration:none">Ver Produtos</a>
 </div>
 <button id="hamburger" class="visible-lg" aria-label="Menu" style="align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;color:hsl(var(--ink));background:none;border:none;cursor:pointer">
 <svg id="menu-open" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -153,12 +206,12 @@ a{text-decoration:none;color:inherit}
 </div>
 <div id="mobile-menu" style="display:none;border-top:1px solid hsl(var(--border));background:hsl(var(--bg))">
 <div class="container-site" style="padding:16px 20px;display:flex;flex-direction:column;gap:4px">
-<a href="#/" class="mob-link" data-route="/" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">In&iacute;cio</a>
-<a href="#/sobre" class="mob-link" data-route="/sobre" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Sobre Nós</a>
-<a href="#/produtos" class="mob-link" data-route="/produtos" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Produtos</a>
-<a href="#/faq" class="mob-link" data-route="/faq" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Perguntas</a>
-<a href="#/contato" class="mob-link" data-route="/contato" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Contato</a>
-<a href="#/produtos" class="btn btn-primary btn-lg" style="width:100%;margin-top:12px;text-decoration:none">Ver produtos</a>
+<a href="#/" class="mob-link" data-route="/" style="display:block;padding:12px 16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">In&iacute;cio</a>
+<a href="#/sobre" class="mob-link" data-route="/sobre" style="display:block;padding:12px 16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Sobre Nós</a>
+<a href="#/produtos" class="mob-link" data-route="/produtos" style="display:block;padding:12px 16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Produtos</a>
+<a href="#/faq" class="mob-link" data-route="/faq" style="display:block;padding:12px 16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Perguntas</a>
+<a href="#/contato" class="mob-link" data-route="/contato" style="display:block;padding:12px 16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Contato</a>
+<a href="#/produtos" class="btn btn-primary btn-lg" style="width:100%;margin-top:12px;text-decoration:none">Ver Produtos</a>
 </div>
 </div>
 </header>
@@ -182,35 +235,37 @@ a{text-decoration:none;color:inherit}
 <nav aria-label="Rodapé">
 <h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink));margin-bottom:12px">Navegar</h3>
 <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
-<li><a href="#/" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Inicio</a></li>
-<li><a href="#/sobre" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Sobre Nós</a></li>
-<li><a href="#/produtos" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Produtos</a></li>
-<li><a href="#/faq" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Perguntas</a></li>
-<li><a href="#/contato" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Contato</a></li>
+<li><a href="#/" class="footer-link" style="color:hsl(var(--ink-muted));text-decoration:none">In&iacute;cio</a></li>
+<li><a href="#/sobre" class="footer-link" style="color:hsl(var(--ink-muted));text-decoration:none">Sobre N&oacute;s</a></li>
+<li><a href="#/produtos" class="footer-link" style="color:hsl(var(--ink-muted));text-decoration:none">Produtos</a></li>
+<li><a href="#/faq" class="footer-link" style="color:hsl(var(--ink-muted));text-decoration:none">Perguntas</a></li>
+<li><a href="#/contato" class="footer-link" style="color:hsl(var(--ink-muted));text-decoration:none">Contato</a></li>
 </ul>
 </nav>
 <div>
 <h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink));margin-bottom:12px">Fale com a gente</h3>
 <ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
-<li><a href="https://wa.me/5521998187520" target="_blank" class="ftr-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s"><svg class="w-4 h-4" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> +55 21 99818-7520</a></li>
-<li><a href="https://www.instagram.com/criacoesdapri21/" target="_blank" class="ftr-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @criacoesdapri21</a></li>
-<li><a href="mailto:contato@educapri.com.br" class="ftr-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Enviar mensagem</a></li>
+<li><a href="https://wa.me/5521998187520" target="_blank" class="footer-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> WhatsApp</a></li>
+<li><a href="https://www.instagram.com/criacoesdapri21/" target="_blank" class="footer-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</a></li>
+<li><a href="mailto:contato@educapri.com.br" class="footer-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> contato@educapri.com.br</a></li>
 </ul>
 </div>
 </div>
-<div style="margin-top:40px;padding-top:24px;border-top:1px solid hsl(var(--gold)/0.3);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:12px">
-<p style="font-size:14px;color:hsl(var(--ink-muted))">&copy; 2026 Educa Pri &bull; Criacoes da Pri</p>
+<div class="footer-bottom" style="display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:12px">
+<p style="font-size:14px;color:hsl(var(--ink-muted))">&copy; 2026 Educa Pri &bull; Cria&ccedil;&otilde;es da Pri</p>
 <p style="font-family:Caveat,cursive;font-size:24px;color:hsl(var(--gold-deep));line-height:1">com carinho, sempre &#x1F49A;</p>
 </div>
 </div>
 </footer>
 
-<a href="https://wa.me/5521998187520?text=Ola!%20Vim%20pelo%20site%20da%20Educa%20Pri%20%F0%9F%92%9A%20quero%20saber%20mais%20sobre%20os%20materiais." target="_blank" id="whatsapp-fab" aria-label="Fale conosco" style="position:fixed;bottom:20px;right:20px;z-index:50;display:flex;align-items:center;gap:8px;text-decoration:none">
-<span id="fab-tip" style="display:none;background:hsl(var(--surface));color:hsl(var(--ink));font-size:14px;font-weight:600;padding:8px 12px;border-radius:9999px;box-shadow:var(--shadow-md);border:1px solid hsl(var(--border))">Fale conosco &#x1F49A;</span>
-<span style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:9999px;background:hsl(var(--primary));color:hsl(0 0% 100%);box-shadow:var(--shadow-lg);transition:transform .2s" class="pulse-el">
+<div class="wa-fab-wrapper" style="position:fixed;bottom:20px;right:20px;z-index:50">
+<span class="wa-tooltip">Fale conosco</span>
+<a href="https://wa.me/5521998187520?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Educa%20Pri%20%F0%9F%92%9A%20quero%20saber%20mais%20sobre%20os%20materiais." target="_blank" id="whatsapp-fab" class="wa-fab" aria-label="Fale conosco" style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:9999px;background:hsl(var(--primary));color:hsl(0 0% 100%);box-shadow:var(--shadow-lg);text-decoration:none">
+<span class="wa-pulse-el" style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:9999px">
 <svg class="w-7 h-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg>
 </span>
 </a>
+</div>
 
 </div>
 
@@ -228,7 +283,7 @@ a{text-decoration:none;color:inherit}
     { slug:'kit-cadernos', name:'Kit com 3 Cadernos Pedagógicos', short:'Três cadernos digitais que caminham juntos na alfabetização: leitura e interpretação, produção textual e gêneros textuais.', tag:'Kit Digital', category:'Alfabetização • Leitura • Escrita', image:'assets/kit-cadernos.png', color:'green', checkout:'https://pay.kiwify.com.br/zurpa0Y', bullets:['100 textos para leitura e interpretação','50 páginas de produção textual com imagens','50 páginas de gêneros textuais variados','Ideal para todos os níveis de aprendizagem'] },
     { slug:'manual-tdah', name:'Guia para Pais de Crianças com TDAH', short:'Um manual acolhedor com estratégias práticas para apoiar o dia a dia de crianças com TDAH — foco, rotina e emoções.', tag:'E-book', category:'Apoio às famílias • TDAH', image:'assets/manual-tdah.png', color:'gold', checkout:'https://pay.kiwify.com.br/hxduBt6?afid=FAER7YAG', bullets:['Compreensão real do TDAH, sem mitos','Rotinas produtivas e ferramentas visuais','Estratégias de foco e controle emocional','Parceria com a escola e apoio profissional'] }
   ];
-  const WA_URL = 'https://wa.me/5521998187520?text=Ola!%20Vim%20pelo%20site%20da%20Educa%20Pri%20%F0%9F%92%9A%20quero%20saber%20mais%20sobre%20os%20materiais.';
+  const WA_URL = 'https://wa.me/5521998187520?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Educa%20Pri%20%F0%9F%92%9A%20quero%20saber%20mais%20sobre%20os%20materiais.';
   const WA_LABEL = '+55 21 99818-7520';
 
   // Build product card HTML
@@ -238,6 +293,10 @@ a{text-decoration:none;color:inherit}
     return '<a href="#/produtos/'+p.slug+'" class="card-sticker border-dashed-gold reveal" style="display:block;padding:24px;text-decoration:none;transition:all .3s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'var(--shadow-xl)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,'+bg+',hsl(var(--surface)));display:flex;align-items:center;justify-content:center;margin-bottom:20px"><img src="'+p.image+'" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;transition:transform .5s" onmouseover="this.style.transform=\'scale(1.06)\'" onmouseout="this.style.transform=\'\'"><span style="position:absolute;top:12px;right:12px;font-size:20px;color:hsl(var(--gold));animation:wiggle 3s ease-in-out infinite">&#x2726;</span></div><div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><span style="display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:9999px;text-transform:uppercase;letter-spacing:0.025em;'+chip+'">'+p.tag+'</span><span style="font-size:14px;color:hsl(var(--ink-muted))">'+p.category+'</span></div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:clamp(18px,2vw,24px);color:hsl(var(--ink));line-height:1.2;margin-bottom:8px">'+p.name+'</h3><p style="font-size:16px;color:hsl(var(--ink-muted));line-height:1.625;margin-bottom:20px">'+p.short+'</p><span style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--cta));font-weight:600">Ver detalhes <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>';
   }
 
+  function build404() {
+    return '<section style="padding:80px 20px;text-align:center;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><a href="#/" style="margin-bottom:24px"><img src="assets/logo-educapri.jpg" alt="Educa Pri" style="width:72px;height:72px;border-radius:9999px;box-shadow:0 0 0 3px hsl(var(--gold)/0.5),0 2px 8px hsl(30 30% 20% / 0.08)"></a><div style="font-size:80px;font-weight:800;font-family:Poppins,system-ui,sans-serif;color:hsl(var(--primary));line-height:1">404</div><div style="font-size:24px;font-weight:600;color:hsl(var(--ink));margin-top:8px">Página não encontrada</div><p style="margin-top:12px;font-size:16px;color:hsl(var(--ink-muted));max-width:400px">Opa! O link que você seguiu pode estar quebrado ou a página foi removida.</p><div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center"><a href="#/" class="btn btn-primary btn-lg">Voltar ao Início <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="#/contato" class="btn btn-outline btn-lg">Falar com a gente</a></div></section>';
+  }
+
   const PAGES = {
     '/': buildHome,
     '/sobre': buildAbout,
@@ -245,7 +304,8 @@ a{text-decoration:none;color:inherit}
     '/produtos/kit-cadernos': function(){ return buildProductDetail(0); },
     '/produtos/manual-tdah': function(){ return buildProductDetail(1); },
     '/faq': buildFaq,
-    '/contato': buildContact
+    '/contato': buildContact,
+    '404': build404
   };
 
   function buildHome() {
@@ -257,13 +317,13 @@ a{text-decoration:none;color:inherit}
 <span style="position:absolute;top:50%;right:33%;font-size:18px;color:hsl(var(--gold));animation:float-slow 6s ease-in-out infinite">&#x2727;</span>
 <svg style="position:absolute;bottom:-24px;right:16px;width:96px;height:96px;color:hsl(var(--gold)/0.4)" viewBox="0 0 100 100" fill="none"><path d="M5 50 Q 25 20, 50 50 T 95 50" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"/></svg>
 </div>
-<div class="container-site" style="padding:64px 20px">
+<div class="container-site" style="padding:80px 20px">
 <div class="reveal" style="max-width:100%">
-<div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:center">
+<div id="hero-grid" style="display:grid;grid-template-columns:1fr;gap:48px;align-items:center">
 <div>
-<span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink));box-shadow:var(--shadow-xs)"><span aria-hidden>&#x1F31F;</span> Criacoes da Pri</span>
-<h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;color:hsl(var(--ink))">Aprender com <span class="highlight-marker">carinho</span>, <span style="color:hsl(var(--brand-blue))">criatividade</span> e propósito.</h1>
-<p style="margin-top:20px;font-size:clamp(16px,2.5vw,20px);color:hsl(var(--ink-muted));line-height:1.625;max-width:36rem">Materiais pedagógicos digitais para acompanhar cada passo da alfabetização — pensados para professores, familias e terapeutas que acreditam na educação como um ato de amor.</p>
+<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><img src="assets/logo-educapri.jpg" alt="Educa Pri" style="width:28px;height:28px;border-radius:9999px;box-shadow:0 0 0 2px hsl(var(--gold)/0.5)"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink));box-shadow:var(--shadow-xs)"><span aria-hidden>&#x1F31F;</span> Criações da Pri</span></div>
+<h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.875rem,5vw,3rem);line-height:1.05;color:hsl(var(--ink))">Aprender com <span class="highlight-marker">carinho</span>, <span style="color:hsl(var(--brand-blue))">criatividade</span> e propósito.</h1>
+<p style="margin-top:20px;font-size:clamp(16px,2.5vw,20px);color:hsl(var(--ink-muted));line-height:1.625;max-width:42rem">Materiais pedagógicos digitais para acompanhar cada passo da alfabetização — pensados para professores, famílias e terapeutas que acreditam na educação como um ato de amor.</p>
 <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px">
 <a href="#/produtos" class="btn btn-primary btn-lg btn-pulse-gold">Conhecer nossos materiais <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
 <a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar no WhatsApp</a>
@@ -351,14 +411,14 @@ a{text-decoration:none;color:inherit}
 
   function buildAbout() {
     return `<section data-od-id="sobre-hero" class="bg-cream-gradient">
-<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
-<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F337; Nossa história</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;max-width:48rem;margin:20px auto 0;color:hsl(var(--ink))">Educação que nasce do <span class="highlight-marker">coração</span>.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin:20px auto 0;line-height:1.625">Somos a Educa Pri. Criamos materiais pedagógicos digitais para acompanhar cada passo do aprendizado — com respeito, delicadeza e propósito.</p></div></div>
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F337; Nossa história</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,4.5vw,2.8rem);line-height:1.1;max-width:48rem;margin:20px auto 0;color:hsl(var(--ink))">Educação que nasce do <span class="highlight-marker">coração</span>.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin:20px auto 0;line-height:1.625">Somos a Educa Pri. Criamos materiais pedagógicos digitais para acompanhar cada passo do aprendizado — com respeito, delicadeza e propósito.</p></div></div>
 </section>
 <section data-od-id="sobre-missao" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div class="reveal"><div class="card-sticker" style="padding:32px"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">A Educa Pri nasceu do desejo de tornar o aprendizado mais <span class="highlight-marker">leve</span>, divertido e acessível para todas as crianças.</p><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">Criamos materiais pedagógicos digitais com carinho, criatividade e propósito, pensando em apoiar professores, pais, terapeutas e todos que acreditam no poder da educação. Nosso compromisso é desenvolver atividades que estimulem a aprendizagem de forma lúdica, respeitando o ritmo de cada criança.</p></div></div>
 <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:32px 0"><span style="height:2px;width:64px;background:hsl(var(--gold));border-radius:9999px"></span><span style="color:hsl(var(--gold));font-size:20px">&#x2726;</span><span style="height:2px;width:64px;background:hsl(var(--gold));border-radius:9999px"></span></div>
 <div id="about-cards" style="display:grid;grid-template-columns:1fr;gap:20px"></div></div></section>
 <section data-od-id="sobre-citacao" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-narrow"><div class="reveal"><div style="border-radius:24px;background:hsl(var(--surface));border:2px dashed hsl(var(--gold));padding:32px;text-align:center"><img src="assets/logo-educapri.jpg" alt="Logo" style="width:80px;height:80px;border-radius:9999px;margin:0 auto 16px;outline:2px solid hsl(var(--gold)/0.6);outline-offset:-2px"><p style="font-family:Caveat,cursive;font-weight:600;font-size:clamp(1.75rem,4vw,2.5rem);color:hsl(var(--gold-deep));line-height:1.2">&ldquo;Ensinar com amor faz toda a diferença.&rdquo;</p><p style="margin-top:12px;color:hsl(var(--ink-muted))">— Educa Pri</p></div></div></div></section>
-<section data-od-id="sobre-areas" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="max-width:42rem;margin-bottom:40px"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Areas que tocamos</span><h2 class="section-title">O que você encontra por aqui</h2><p class="section-subtitle">Recursos para diferentes momentos do aprendizado e da rotina.</p></div>
+<section data-od-id="sobre-areas" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="max-width:42rem;margin-bottom:40px"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Áreas que tocamos</span><h2 class="section-title">O que você encontra por aqui</h2><p class="section-subtitle">Recursos para diferentes momentos do aprendizado e da rotina.</p></div>
 <div id="about-areas" style="display:grid;grid-template-columns:1fr;gap:16px"></div>
 <div style="margin-top:40px;text-align:center;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
 <a href="#/produtos" class="btn btn-primary btn-lg">Ver produtos <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -367,15 +427,15 @@ a{text-decoration:none;color:inherit}
   }
   function buildProducts() {
     var html = `<section data-od-id="produtos-hero" class="bg-cream-gradient">
-<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
-<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F4DA; Nossos materiais</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Materiais digitais para <span class="highlight-marker">ensinar com carinho</span>.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Baixe, imprima e use quando quiser. Ideais para professores, familias e terapeutas.</p></div></div>
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F4DA; Nossos materiais</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Materiais digitais para <span class="highlight-marker">ensinar com carinho</span>.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Baixe, imprima e use quando quiser. Ideais para professores, famílias e terapeutas.</p></div></div>
 </section>
 <section data-od-id="produtos-grid" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-site"><div id="prod-grid" class="reveal-cascade" style="display:grid;grid-template-columns:1fr;gap:24px"></div></div></section>
 <section data-od-id="produtos-breve" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Em breve</span><h2 class="section-title">Mais materiais chegando</h2><p class="section-subtitle">Estamos preparando novos cadernos e guias com muito carinho. Fique de olho por aqui!</p></div>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px">
-<div class="card-sticker" style="padding:24px;text-align:center;opacity:0.8"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Coord. motora</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparacao</div></div>
-<div class="card-sticker" style="padding:24px;text-align:center;opacity:0.8"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">TEA</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparacao</div></div>
-<div class="card-sticker" style="padding:24px;text-align:center;opacity:0.8"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Matematica</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparacao</div></div>
+<div id="breve-grid" style="display:grid;grid-template-columns:1fr;gap:16px">
+<div class="card-sticker" style="padding:24px;text-align:center;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Coord. motora</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparação</div></div>
+<div class="card-sticker" style="padding:24px;text-align:center;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">TEA</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparação</div></div>
+<div class="card-sticker" style="padding:24px;text-align:center;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Matemática</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparação</div></div>
 </div></div></section>`;
     return html;
   }
@@ -407,13 +467,13 @@ a{text-decoration:none;color:inherit}
     if (!isKit) {
       var topics = [
         ['&#x1F9E0;','Compreendendo o TDAH','Mitos, verdades e como o cérebro da criança funciona.'],
-        ['&#x1F4C5;','Rotinas produtivas','Planejamento diario, ferramentas visuais e previsibilidade.'],
-        ['&#x1F642;','Foco e concentracao','Estratégias práticas e o metodo Pomodoro adaptado.'],
+        ['&#x1F4C5;','Rotinas produtivas','Planejamento diário, ferramentas visuais e previsibilidade.'],
+        ['&#x1F642;','Foco e concentração','Estratégias práticas e o metodo Pomodoro adaptado.'],
         ['&#x1F499;','Impulsividade e emoções','Respiração, relaxamento e controle emocional.'],
-        ['&#x1F393;','Aprendizado que funciona','Dicas para adaptar os estudos e a memorizacao.'],
+        ['&#x1F393;','Aprendizado que funciona','Dicas para adaptar os estudos e a memorização.'],
         ['&#x1F465;','Parceria com a escola','Como conversar, apoiar e buscar ajuda profissional.']
       ];
-      topicsHtml = '<section data-od-id="produto-topicos" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-site"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> O que você vai encontrar</span><h2 class="section-title">Temas abordados no guia</h2><p class="section-subtitle">Um passo a passo prático, dividido em capitulos curtos e faceis de aplicar.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px">';
+      topicsHtml = '<section data-od-id="produto-topicos" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-site"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> O que você vai encontrar</span><h2 class="section-title">Temas abordados no guia</h2><p class="section-subtitle">Um passo a passo prático, dividido em capítulos curtos e fáceis de aplicar.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px">';
       topics.forEach(function(t) {
         topicsHtml += '<div class="card-sticker" style="padding:24px"><div style="width:48px;height:48px;border-radius:12px;background:hsl(var(--accent));color:hsl(var(--primary));display:flex;align-items:center;justify-content:center;margin-bottom:12px"><span style="font-size:24px">'+t[0]+'</span></div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:18px;color:hsl(var(--ink))">'+t[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+t[2]+'</p></div>';
       });
@@ -422,15 +482,15 @@ a{text-decoration:none;color:inherit}
     // For whom
     var forWhomHtml = '';
     if (isKit) {
-      var fw = [['&#x1F469;&#x200D;&#x1F3EB;','Professores','Enriqueca aulas, projetos e reforco escolar.'],['&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;','Familias','Estude com carinho em casa, no tempo da criança.'],['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versateis para atendimentos individuais.'],['&#x1F9E6;','Todos os níveis','Da alfabetização inicial a leitura fluente.']];
+      var fw = [['&#x1F469;&#x200D;&#x1F3EB;','Professores','Enriqueca aulas, projetos e reforco escolar.'],['&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;','Familias','Estude com carinho em casa, no tempo da criança.'],['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versáteis para atendimentos individuais.'],['&#x1F9E6;','Todos os níveis','Da alfabetização inicial a leitura fluente.']];
       forWhomHtml = '<section data-od-id="produto-para-quem" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem serve</span><h2 class="section-title">Um material que caminha junto.</h2></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px">';
       fw.forEach(function(f) {
         forWhomHtml += '<div class="card-sticker" style="padding:20px;display:flex;align-items:flex-start;gap:16px"><span style="font-size:30px">'+f[0]+'</span><div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">'+f[1]+'</h3><p style="color:hsl(var(--ink-muted))">'+f[2]+'</p></div></div>';
       });
       forWhomHtml += '</div></div></section>';
     } else {
-      forWhomHtml = '<section data-od-id="produto-para-quem" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem e</span><h2 class="section-title">Um apoio real para familias</h2></div><ul style="display:grid;grid-template-columns:1fr;gap:12px;list-style:none;padding:0">';
-      var fw2 = ['Pais e maes que buscam entender o TDAH sem julgamento','Responsaveis que querem uma rotina mais leve em casa','Familias em parceria com escola e profissionais','Cuidadores que desejam apoiar as emoções da criança'];
+      forWhomHtml = '<section data-od-id="produto-para-quem" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem é</span><h2 class="section-title">Um apoio real para familias</h2></div><ul style="display:grid;grid-template-columns:1fr;gap:12px;list-style:none;padding:0">';
+      var fw2 = ['Pais e mães que buscam entender o TDAH sem julgamento','Responsaveis que querem uma rotina mais leve em casa','Familias em parceria com escola e profissionais','Cuidadores que desejam apoiar as emoções da criança'];
       fw2.forEach(function(f) {
         forWhomHtml += '<li style="display:flex;align-items:flex-start;gap:12px;border-radius:16px;background:hsl(var(--surface-alt));border:1px solid hsl(var(--border));padding:16px"><svg class="w-5 h-5" style="color:hsl(var(--primary));flex-shrink:0;margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="color:hsl(var(--ink))">'+f+'</span></li>';
       });
@@ -442,14 +502,14 @@ a{text-decoration:none;color:inherit}
       : '<section data-od-id="produto-cta" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px"><a href="'+p.checkout+'" target="_blank" class="btn btn-primary btn-lg btn-pulse-gold">Quero o guia <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="'+WA_URL+'" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar com a Pri</a></div></div></section>';
 
     return `<section data-od-id="produto-hero" class="bg-cream-gradient">
-<div class="container-site" style="padding:32px 20px"><a href="#/produtos" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para Produtos</a></div>
+<div class="container-site" style="padding:32px 20px"><a href="#/produtos" class="back-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para Produtos</a></div>
 <div class="container-site" style="padding:0 20px 64px">
 <div style="display:grid;grid-template-columns:1fr;gap:40px;align-items:center">
 <div class="reveal-left"><div style="aspect-ratio:4/3;border-radius:24px;background:linear-gradient(135deg,${isKit?'hsl(var(--accent))':'hsl(44 95% 90%)'},hsl(var(--surface)));border:2px dashed hsl(var(--gold));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden"><img src="${p.image}" alt="" class="mockup-3d animate-float-mock" style="width:92%;height:92%;object-fit:contain"><span class="animate-wiggle" style="position:absolute;top:24px;left:24px;font-size:30px" aria-hidden>${tagIcon}</span><span class="animate-float-slow" style="position:absolute;bottom:24px;right:24px;font-size:30px" aria-hidden>${isKit?'&#x270F;&#xFE0F;':'&#x1F9E0;'}</span><span aria-hidden class="pointer-events-none" style="position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,hsl(0 0% 100% / 0.45) 50%,transparent 65%);background-size:250% 100%;background-position:130% 0;border-radius:inherit"></span></div></div>
 <div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;${tagStyle};font-size:12px;font-weight:700;padding:4px 12px;text-transform:uppercase;letter-spacing:0.025em">${p.tag}</span><h1 style="margin-top:16px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">${isKit ? 'Kit com <span class="highlight-marker">3 Cadernos</span> Pedagógicos' : 'Guia para Pais de <span class="highlight-marker">Crianças com TDAH</span>'}</h1><p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">${isKit?'Três cadernos digitais que se completam para acompanhar a criança da leitura a escrita autoral — com atividades bonitas, claras e cheias de propósito.':'Um manual respeitoso e prático, criado para caminhar ao seu lado. Estratégias reais para acolher, organizar a rotina e apoiar o desenvolvimento do seu filho.'}</p>
 <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px"><a href="${p.checkout}" target="_blank" class="btn btn-primary btn-lg btn-pulse-gold">Comprar agora <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Tirar dúvidas</a></div>
 <p style="margin-top:16px;font-size:14px;color:hsl(var(--ink-soft))">${isKit?'Acesso digital • Pagamento via Kiwify':'E-book digital • Pagamento via Kiwify'}</p></div></div></div></section>
-${isKit?'':'<section data-od-id="produto-descricao" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div class="reveal"><div class="card-sticker" style="padding:32px"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">Se você e pai ou mae de uma criança com TDAH, sabe que a jornada pode ser desafiadora. Este guia foi criado para <span class="highlight-marker">te dar ferramentas práticas</span> para lidar com o dia a dia com mais leveza e propósito.</p><p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">Aqui você encontra explicacoes claras sobre o TDAH e um passo a passo carinhoso para construir rotinas, ampliar o foco, apoiar as emoções e fortalecer a autoestima do seu filho.</p></div></div></div></section>'}
+${isKit?'':'<section data-od-id="produto-descricao" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div class="reveal"><div class="card-sticker" style="padding:32px"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">Se você é pai ou mãe de uma criança com TDAH, sabe que a jornada pode ser desafiadora. Este guia foi criado para <span class="highlight-marker">te dar ferramentas práticas</span> para lidar com o dia a dia com mais leveza e propósito.</p><p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">Aqui você encontra explicações claras sobre o TDAH e um passo a passo carinhoso para construir rotinas, ampliar o foco, apoiar as emoções e fortalecer a autoestima do seu filho.</p></div></div></div></section>'}
 ${cadernosHtml}
 ${topicsHtml}
 ${forWhomHtml}
@@ -467,22 +527,22 @@ ${finalCta}`;
     ];
     var items = '';
     faqs.forEach(function(f,i) {
-      items += '<div class="accordion-item"><button class="accordion-trigger" onclick="var p=this.closest(\'.accordion-item\');p.classList.toggle(\'open\')"><span style="color:hsl(var(--gold));font-size:20px;line-height:1;margin-top:2px;flex-shrink:0">&#x2753;</span><span>'+f.q+'</span><svg class="accordion-chevron" style="flex-shrink:0;margin-left:auto;transition:transform .3s;width:20px;height:20px;color:hsl(var(--ink-muted))" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-inner">'+f.a+'</div></div></div>';
+      items += '<div class="accordion-item"><button class="accordion-trigger" onclick="var p=this.closest(\'.accordion-item\');p.classList.toggle(\'open\');this.setAttribute(\'aria-expanded\',p.classList.contains(\'open\'))" aria-expanded="false"><span style="color:hsl(var(--gold));font-size:20px;line-height:1;margin-top:2px;flex-shrink:0">&#x2753;</span><span>'+f.q+'</span><svg class="accordion-chevron" style="flex-shrink:0;margin-left:auto;transition:transform .35s cubic-bezier(.22,1,.36,1);width:20px;height:20px;color:hsl(var(--ink-muted))" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-inner">'+f.a+'</div></div></div>';
     });
     return `<section data-od-id="faq-hero" class="bg-cream-gradient">
-<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
-<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F4AC; Perguntas Frequentes</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Vamos <span class="highlight-marker">tirar suas dúvidas</span>?</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Se ainda ficar alguma duvida, chama a gente no WhatsApp — vamos adorar te ouvir.</p></div></div>
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F4AC; Perguntas frequentes</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,4.5vw,2.8rem);line-height:1.1;color:hsl(var(--ink))">Vamos <span class="highlight-marker">tirar suas dúvidas</span>?</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Se ainda ficar alguma dúvida, chama a gente no WhatsApp — vamos adorar te ouvir.</p></div></div>
 </section>
 <section data-od-id="faq-accordion" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="display:flex;flex-direction:column;gap:12px">${items}</div><div style="margin-top:48px;text-align:center"><a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg btn-pulse-whatsapp"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar no WhatsApp</a></div></div></section>`;
   }
   function buildContact() {
     return `<section data-od-id="contato-hero" class="bg-cream-gradient">
-<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
-<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F48C; Vamos conversar</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Estamos <span class="highlight-marker">pertinho</span> de você.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Adoramos ouvir professores, familias e terapeutas. Chame a gente no canal que preferir.</p></div></div>
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Início</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F48C; Vamos conversar</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Estamos <span class="highlight-marker">pertinho</span> de você.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Adoramos ouvir professores, famílias e terapeutas. Chame a gente no canal que preferir.</p></div></div>
 </section>
 <section data-od-id="contato-canais" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="display:grid;grid-template-columns:1fr;gap:24px">
-<div class="reveal"><a href="${WA_URL}" target="_blank" class="card-sticker border-dashed-gold" style="display:block;padding:32px;text-align:center;transition:all .3s;text-decoration:none" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="width:56px;height:56px;border-radius:9999px;background:hsl(var(--primary));color:hsl(0 0% 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''"><svg class="w-7 h-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg></div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">WhatsApp</h2><p style="margin-top:8px;color:hsl(var(--ink-muted))">Resposta rápida e carinhosa</p><p style="margin-top:16px;font-weight:600;color:hsl(var(--primary))">+55 21 99818-7520</p></a></div>
-<div class="reveal"><a href="https://www.instagram.com/criacoesdapri21/" target="_blank" class="card-sticker border-dashed-gold" style="display:block;padding:32px;text-align:center;transition:all .3s;text-decoration:none" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="width:56px;height:56px;border-radius:9999px;background:hsl(var(--brand-pink));color:hsl(0 0% 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">Instagram</h2><p style="margin-top:8px;color:hsl(var(--ink-muted))">Novidades, bastidores e dicas</p><p style="margin-top:16px;font-weight:600;color:hsl(var(--brand-blue))">@criacoesdapri21</p></a></div>
+<div class="reveal"><a href="${WA_URL}" target="_blank" class="contato-card border-dashed-gold" style="display:block;text-decoration:none"><div class="contato-icon" style="background:hsl(var(--primary));color:hsl(0 0% 100%)"><svg class="w-7 h-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg></div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">WhatsApp</h2><p style="margin-top:8px;color:hsl(var(--ink-muted))">Resposta rápida e carinhosa</p><p style="margin-top:16px;font-weight:600;color:hsl(var(--primary))">+55 21 99818-7520</p></a></div>
+<div class="reveal"><a href="https://www.instagram.com/criacoesdapri21/" target="_blank" class="contato-card border-dashed-gold" style="display:block;text-decoration:none"><div class="contato-icon" style="background:hsl(var(--brand-pink));color:hsl(0 0% 100%)"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">Instagram</h2><p style="margin-top:8px;color:hsl(var(--ink-muted))">Novidades, bastidores e dicas</p><p style="margin-top:16px;font-weight:600;color:hsl(var(--brand-blue))">@criacoesdapri21</p></a></div>
 </div>
 <div class="reveal" style="margin-top:40px"><div style="border-radius:24px;background:hsl(var(--surface-alt));padding:32px;text-align:center;border:1px solid hsl(var(--border))"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">Cada mensagem é lida com atenção. Aqui, a gente acredita que <span class="highlight-marker">ensinar com amor</span> faz toda a diferença.</p><div style="margin-top:24px"><a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg btn-pulse-whatsapp"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Conversar agora</a></div></div></div></div></section>`;
   }
@@ -514,7 +574,7 @@ ${finalCta}`;
     const pageFn = PAGES[hash];
     if (!pageFn) {
       document.title = '404 — Educa Pri';
-      main.innerHTML = '<section style="padding:80px 20px;text-align:center;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center"><div style="font-size:80px;font-weight:800;font-family:Poppins,system-ui,sans-serif;color:hsl(var(--primary));line-height:1">404</div><div style="font-size:24px;font-weight:600;color:hsl(var(--ink));margin-top:8px">Página não encontrada</div><p style="margin-top:12px;font-size:16px;color:hsl(var(--ink-muted));max-width:400px">Opa! O link que você seguiu pode estar quebrado ou a página foi removida.</p><div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center"><a href="#/" class="btn btn-primary btn-md">Voltar ao Início</a><a href="#/produtos" class="btn btn-secondary btn-md">Ver produtos</a></div></section>';
+      main.innerHTML = PAGES['404']();
     } else {
       main.innerHTML = pageFn();
     }
@@ -548,7 +608,7 @@ ${finalCta}`;
       ['&#x1F3A8;','Design pensado','Layouts limpos, coloridos e organizados para imprimir e usar.'],
       ['&#x1F9E9;','Inclusivo','Recursos que apoiam crianças com TEA, TDAH e outras necessidades.'],
       ['&#x1F49A;','Para toda a familia','Um apoio real para professores, pais e terapeutas.'],
-      ['&#x1F512;','Acesso digital vitalicio','Baixe, imprima e use quantas vezes quiser, no seu tempo.']
+      ['&#x1F512;','Acesso digital vitalício','Baixe, imprima e use quantas vezes quiser, no seu tempo.']
     ];
     items.forEach(function(d,i) {
       var colors = ['hsl(var(--accent))','hsl(44 95% 88%)','hsl(218 80% 94%)','hsl(var(--accent))','hsl(44 95% 88%)','hsl(218 80% 94%)'];
@@ -563,7 +623,7 @@ ${finalCta}`;
     var items = [
       ['&#x1F469;&#x200D;&#x1F3EB;','Professores','Materiais prontos para enriquecer aulas e projetos.'],
       ['&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;','Familias','Um apoio afetuoso para estudar juntos em casa.'],
-      ['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versateis para atendimentos e intervencoes.']
+      ['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versáteis para atendimentos e intervenções.']
     ];
     items.forEach(function(d) {
       grid.innerHTML += '<div class="card-sticker reveal" style="padding:28px;text-align:center;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'var(--shadow-xl)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="font-size:48px;margin-bottom:12px" aria-hidden>'+d[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">'+d[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted))">'+d[2]+'</p></div>';
@@ -584,12 +644,12 @@ ${finalCta}`;
     if (!grid || grid.children.length > 0) return;
     var cards = [
       ['&#x1F331;','Nossa missão','Tornar o aprender acessível, afetuoso e cheio de significado para toda infância.'],
-      ['&#x1F49B;','Nosso propósito','Apoiar quem educa, ensinando com amor e organizacao.'],
+      ['&#x1F49B;','Nosso propósito','Apoiar quem educa, ensinando com amor e organização.'],
       ['&#x2728;','Nossos valores','Cuidado, criatividade, inclusão e respeito ao ritmo de cada criança.'],
       ['&#x1F4DA;','Nosso jeito','Materiais bonitos, claros e prontinhos para usar em casa, na escola ou no consultório.']
     ];
     cards.forEach(function(c) {
-      grid.innerHTML += '<div class="card-sticker reveal" style="padding:24px"><div style="font-size:30px;margin-bottom:8px" aria-hidden>'+c[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:18px;color:hsl(var(--ink))">'+c[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+c[2]+'</p></div>';
+      grid.innerHTML += '<div class="card-sticker reveal" style="padding:28px"><div style="font-size:30px;margin-bottom:8px" aria-hidden>'+c[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:18px;color:hsl(var(--ink))">'+c[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+c[2]+'</p></div>';
     });
     observeReveal();
   }
@@ -609,7 +669,7 @@ ${finalCta}`;
     });
   }
   function observeReveal() {
-    document.querySelectorAll('.reveal, .reveal-cascade > .card-sticker').forEach(function(el) {
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-zoom, .reveal-blur, .reveal-cascade > .card-sticker').forEach(function(el) {
       if (el.classList.contains('is-visible')) return;
       var io = new IntersectionObserver(function(entries) {
         entries.forEach(function(e) {
@@ -618,7 +678,7 @@ ${finalCta}`;
             io.unobserve(e.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
       io.observe(el);
     });
   }
