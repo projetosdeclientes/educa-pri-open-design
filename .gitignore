@@ -1,0 +1,6 @@
+# Open Design skill artifacts
+.od-skills/
+index.html.artifact.json
+
+# Original React reference source (not part of the static site)
+educa-pri-main/

@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Educa Pri — Materiais pedagógicos feitos com amor para ensinar</title>
+<meta name="description" content="Recursos digitais para alfabetização, leitura, produção textual e TDAH.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: 40 60% 97%; --fg: 220 22% 22%; --surface: 0 0% 100%;
+  --surface-alt: 42 55% 94%; --surface-warm: 38 70% 92%;
+  --primary: 148 55% 42%; --primary-hover: 148 60% 36%;
+  --cta: 32 94% 52%; --cta-hover: 27 90% 46%;
+  --gold: 40 90% 55%; --gold-deep: 34 78% 45%;
+  --highlight: 50 100% 72%; --ink: 220 22% 22%;
+  --ink-muted: 220 14% 46%; --ink-soft: 220 10% 60%;
+  --accent: 148 45% 92%; --accent-fg: 148 55% 28%;
+  --border: 40 30% 86%; --brand-blue: 218 75% 42%;
+  --brand-pink: 340 82% 72%;
+  --shadow-xs: 0 1px 2px hsl(30 30% 20% / 0.05);
+  --shadow-sm: 0 2px 6px hsl(30 30% 20% / 0.06);
+  --shadow-md: 0 6px 18px hsl(30 30% 20% / 0.08);
+  --shadow-lg: 0 14px 36px hsl(30 30% 20% / 0.10);
+  --shadow-xl: 0 24px 60px hsl(30 30% 20% / 0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Nunito,system-ui,sans-serif;background:hsl(var(--bg));color:hsl(var(--ink));-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11";line-height:1.6}
+h1,h2,h3,h4{font-family:Poppins,system-ui,sans-serif;letter-spacing:-0.01em}
+::selection{background:hsl(var(--highlight));color:hsl(var(--ink))}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+.container-site{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+.container-narrow{width:100%;max-width:860px;margin:0 auto;padding:0 20px}
+@media(min-width:640px){.container-site,.container-narrow{padding:0 24px}}
+@media(min-width:640px){.hidden-sm{display:inline-block!important}}
+@media(min-width:1024px){.container-site{padding:0 32px}}
+@media(min-width:640px){#prod-grid{grid-template-columns:1fr 1fr!important}#about-cards{grid-template-columns:1fr 1fr!important}#about-areas{grid-template-columns:1fr 1fr!important}}
+@media(min-width:1024px){#prod-grid{grid-template-columns:1fr 1fr!important}}
+@media(min-width:768px){#footer-grid{grid-template-columns:2fr 1fr 1fr}}@media(min-width:1024px){#about-areas{grid-template-columns:1fr 1fr 1fr!important}}
+@media(min-width:1024px){.hidden-lg{display:flex!important}.visible-lg{display:none!important}}
+.bg-cream-gradient{background:radial-gradient(1200px 500px at 10% -10%,hsl(38 90% 88% / 0.55),transparent 60%),radial-gradient(900px 400px at 100% 0%,hsl(148 60% 88% / 0.45),transparent 60%),linear-gradient(180deg,hsl(var(--bg)) 0%,hsl(var(--surface-warm)) 100%)}
+.bg-warm-band{background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)}
+.highlight-marker{background:linear-gradient(180deg,transparent 55%,hsl(var(--highlight)) 55%);padding:0 0.15em;border-radius:2px}
+.border-dashed-gold{border:2px dashed hsl(var(--gold));border-radius:1rem}
+.card-sticker{border-radius:1.25rem;background:hsl(var(--surface));border:1px solid hsl(var(--border));box-shadow:var(--shadow-md)}
+.card-sticker.border-dashed-gold{border:2px dashed hsl(var(--gold))}
+.golden-ribbon{height:8px;width:100%;background-image:repeating-linear-gradient(90deg,hsl(var(--gold)) 0 14px,transparent 14px 26px)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:Poppins,system-ui,sans-serif;font-weight:600;border-radius:9999px;transition:all .2s;white-space:nowrap;border:none;cursor:pointer;}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,hsl(0 0% 100% / 0.35),transparent);transform:skewX(-18deg);transition:left .6s ease;pointer-events:none}
+.btn:hover::after{left:130%}
+.btn-sm{font-size:14px;padding:8px 16px;min-height:40px}
+.btn-md{font-size:16px;padding:12px 24px;min-height:48px}
+.btn-lg{font-size:16px;padding:16px 28px;min-height:56px}
+.btn-primary{background:hsl(var(--cta));color:hsl(0 0% 100%);box-shadow:var(--shadow-md);text-decoration:none}
+.btn-primary:hover{background:hsl(var(--cta-hover));transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-secondary{background:hsl(var(--gold));color:hsl(var(--ink));box-shadow:var(--shadow-sm);text-decoration:none}
+.btn-secondary:hover{filter:brightness(0.95);transform:translateY(-2px)}
+.btn-outline{background:hsl(var(--surface));color:hsl(var(--ink));border:2px solid hsl(var(--cta)/0.5);text-decoration:none}
+.btn-outline:hover{border-color:hsl(var(--cta));color:hsl(var(--cta-hover));transform:translateY(-2px)}
+.btn-whatsapp{background:hsl(var(--primary));color:hsl(0 0% 100%);box-shadow:var(--shadow-md);text-decoration:none}
+.btn-whatsapp:hover{background:hsl(var(--primary-hover));transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.btn-pulse-whatsapp{animation:pulse-soft 2.6s ease-in-out infinite}
+.btn-pulse-gold{animation:pulse-gold 2.6s ease-in-out infinite}
+@keyframes pulse-soft{0%,100%{box-shadow:0 0 0 0 hsl(var(--primary)/0.35)}50%{box-shadow:0 0 0 14px hsl(var(--primary)/0)}}
+@keyframes pulse-gold{0%,100%{box-shadow:0 0 0 0 hsl(var(--cta)/0.40)}50%{box-shadow:0 0 0 14px hsl(var(--cta)/0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes float-slow{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes wiggle{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes float-mock{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.animate-float{animation:float 4s ease-in-out infinite}
+.animate-float-slow{animation:float-slow 6s ease-in-out infinite}
+.animate-wiggle{animation:wiggle 3s ease-in-out infinite}
+.animate-float-mock{animation:float-mock 7s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .6s,transform .6s}
+.reveal-left.is-visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(28px);transition:opacity .6s,transform .6s}
+.reveal-right.is-visible{opacity:1;transform:none}
+.reveal-zoom{opacity:0;transform:scale(.94);transition:opacity .55s,transform .55s}
+.reveal-zoom.is-visible{opacity:1;transform:none}
+@media(max-width:640px){.reveal-left,.reveal-right{transform:translateY(16px)}}
+.hover-lift{transition:transform .3s,box-shadow .3s}
+.hover-lift:hover{transform:translateY(-6px);box-shadow:var(--shadow-xl)}
+.mockup-3d{transform:perspective(1200px) rotateY(-9deg) rotateX(4deg);transition:transform .6s;filter:drop-shadow(0 26px 34px hsl(30 40% 25% / 0.28))}
+@media(max-width:767px){.mockup-3d{transform:none;filter:drop-shadow(0 14px 20px hsl(30 40% 25% / 0.22))}}
+.card-shine{background:linear-gradient(115deg,transparent 35%,hsl(0 0% 100% / 0.45) 50%,transparent 65%);background-size:250% 100%;background-position:130% 0;transition:background-position .8s;border-radius:inherit}
+.group:hover .card-shine{background-position:-30% 0}
+.header{position:sticky;top:0;z-index:40;width:100%;backdrop-filter:blur(12px);transition:.3s}
+.header-default{background:hsl(var(--bg)/0.7)}
+.header-scrolled{background:hsl(var(--bg)/0.85);box-shadow:var(--shadow-sm)}
+.page{display:none}
+.page.active{display:block}
+.section-eyebrow{display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--accent));color:hsl(var(--accent-fg));font-size:14px;font-weight:600;padding:4px 12px;margin-bottom:16px}
+.section-title{font-size:clamp(1.75rem,4vw,2.6rem);font-weight:800;line-height:1.2}
+.section-subtitle{margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625}
+.accordion-item{border-radius:1.25rem;background:hsl(var(--surface));overflow:hidden;transition:box-shadow .3s;border:1px solid hsl(var(--border))}
+.accordion-item.open{box-shadow:var(--shadow-lg)}
+.accordion-trigger{width:100%;display:flex;align-items:flex-start;gap:12px;padding:20px 24px;font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:16px;text-align:left;cursor:pointer;background:none;border:none;color:hsl(var(--ink));transition:color .2s}
+.accordion-trigger:hover{color:hsl(var(--primary))}
+.accordion-content{overflow:hidden;max-height:0;transition:max-height .4s,opacity .3s;opacity:0}
+.accordion-item.open .accordion-content{max-height:500px;opacity:1}
+.accordion-inner{padding:0 24px 20px 48px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625}
+@media(prefers-reduced-motion:reduce){.animate-float,.animate-float-slow,.animate-float-mock,.animate-wiggle,.btn-pulse-whatsapp,.btn-pulse-gold{animation:none!important}.mockup-3d{transform:none!important}.reveal,.reveal-left,.reveal-right,.reveal-zoom{opacity:1!important;transform:none!important;transition:none!important}}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:hsl(var(--surface-warm))}
+::-webkit-scrollbar-thumb{background:hsl(var(--gold)/0.35);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:hsl(var(--gold)/0.55)}
+</style>
+</head>
+<body>
+<div id="app" style="min-height:100vh;display:flex;flex-direction:column">
+
+<header id="header" class="header header-default">
+<div class="container-site" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px">
+<a href="#/" class="group" style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+<img id="h-logo" src="assets/logo-educapri.jpg" alt="Logo" style="width:48px;height:48px;border-radius:9999px;transition:all .3s;box-shadow:0 1px 2px hsl(30 30% 20% / 0.05);outline:2px solid hsl(var(--gold)/0.4);outline-offset:-2px">
+<div id="h-brand" class="hidden-sm" style="display:none;line-height:1.2">
+<div style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:18px;color:hsl(var(--brand-blue))">Educa Pri</div>
+<div style="font-size:11px;color:hsl(var(--ink-muted));margin-top:-2px">Feito com amor para ensinar</div>
+</div>
+</a>
+<nav id="desktop-nav" class="hidden-lg" style="align-items:center;gap:4px">
+<a href="#/" class="nav-item" data-route="/" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Início</a>
+<a href="#/sobre" class="nav-item" data-route="/sobre" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Sobre Nós</a>
+<a href="#/produtos" class="nav-item" data-route="/produtos" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Produtos</a>
+<a href="#/faq" class="nav-item" data-route="/faq" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Perguntas</a>
+<a href="#/contato" class="nav-item" data-route="/contato" style="padding:8px 14px;border-radius:9999px;font-size:15px;font-weight:600;text-decoration:none;transition:all .2s">Contato</a>
+</nav>
+<div id="desktop-cta" class="hidden-lg" style="align-items:center">
+<a href="#/produtos" class="btn btn-primary btn-md" style="text-decoration:none">Ver produtos</a>
+</div>
+<button id="hamburger" class="visible-lg" aria-label="Menu" style="align-items:center;justify-content:center;width:44px;height:44px;border-radius:9999px;color:hsl(var(--ink));background:none;border:none;cursor:pointer">
+<svg id="menu-open" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+<svg id="menu-close" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+</button>
+</div>
+<div id="mobile-menu" style="display:none;border-top:1px solid hsl(var(--border));background:hsl(var(--bg))">
+<div class="container-site" style="padding:16px 20px;display:flex;flex-direction:column;gap:4px">
+<a href="#/" class="mob-link" data-route="/" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">In&iacute;cio</a>
+<a href="#/sobre" class="mob-link" data-route="/sobre" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Sobre Nós</a>
+<a href="#/produtos" class="mob-link" data-route="/produtos" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Produtos</a>
+<a href="#/faq" class="mob-link" data-route="/faq" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Perguntas</a>
+<a href="#/contato" class="mob-link" data-route="/contato" style="display:block;padding:12px 16px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;color:hsl(var(--ink))">Contato</a>
+<a href="#/produtos" class="btn btn-primary btn-lg" style="width:100%;margin-top:12px;text-decoration:none">Ver produtos</a>
+</div>
+</div>
+</header>
+
+<main id="content" style="flex:1"></main>
+
+<footer style="margin-top:80px;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%);border-top:1px solid hsl(var(--gold)/0.4)">
+<div class="golden-ribbon"></div>
+<div class="container-site" style="padding:56px 20px">
+<div id="footer-grid" style="display:grid;grid-template-columns:1fr;gap:40px">
+<div style="max-width:28rem">
+<div style="display:flex;align-items:center;gap:12px">
+<img src="assets/logo-educapri.jpg" alt="Logo" style="width:56px;height:56px;border-radius:9999px;outline:2px solid hsl(var(--gold)/0.5);outline-offset:-2px">
+<div>
+<div style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:20px;color:hsl(var(--brand-blue))">Educa Pri</div>
+<div style="font-size:14px;color:hsl(var(--ink-muted))">Cria&ccedil;&otilde;es da Pri</div>
+</div>
+</div>
+<p style="margin-top:16px;color:hsl(var(--ink-muted));line-height:1.625"><span class="highlight-marker">Materiais pedagógicos feitos com amor para ensinar.</span></p>
+</div>
+<nav aria-label="Rodapé">
+<h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink));margin-bottom:12px">Navegar</h3>
+<ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+<li><a href="#/" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Inicio</a></li>
+<li><a href="#/sobre" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Sobre Nós</a></li>
+<li><a href="#/produtos" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Produtos</a></li>
+<li><a href="#/faq" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Perguntas</a></li>
+<li><a href="#/contato" style="color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s">Contato</a></li>
+</ul>
+</nav>
+<div>
+<h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink));margin-bottom:12px">Fale com a gente</h3>
+<ul style="list-style:none;display:flex;flex-direction:column;gap:12px">
+<li><a href="https://wa.me/5521998187520" target="_blank" class="ftr-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s"><svg class="w-4 h-4" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> +55 21 99818-7520</a></li>
+<li><a href="https://www.instagram.com/criacoesdapri21/" target="_blank" class="ftr-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @criacoesdapri21</a></li>
+<li><a href="mailto:contato@educapri.com.br" class="ftr-link" style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--ink-muted));text-decoration:none;transition:color .2s"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Enviar mensagem</a></li>
+</ul>
+</div>
+</div>
+<div style="margin-top:40px;padding-top:24px;border-top:1px solid hsl(var(--gold)/0.3);display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:12px">
+<p style="font-size:14px;color:hsl(var(--ink-muted))">&copy; 2026 Educa Pri &bull; Criacoes da Pri</p>
+<p style="font-family:Caveat,cursive;font-size:24px;color:hsl(var(--gold-deep));line-height:1">com carinho, sempre &#x1F49A;</p>
+</div>
+</div>
+</footer>
+
+<a href="https://wa.me/5521998187520?text=Ola!%20Vim%20pelo%20site%20da%20Educa%20Pri%20%F0%9F%92%9A%20quero%20saber%20mais%20sobre%20os%20materiais." target="_blank" id="whatsapp-fab" aria-label="Fale conosco" style="position:fixed;bottom:20px;right:20px;z-index:50;display:flex;align-items:center;gap:8px;text-decoration:none">
+<span id="fab-tip" style="display:none;background:hsl(var(--surface));color:hsl(var(--ink));font-size:14px;font-weight:600;padding:8px 12px;border-radius:9999px;box-shadow:var(--shadow-md);border:1px solid hsl(var(--border))">Fale conosco &#x1F49A;</span>
+<span style="display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:9999px;background:hsl(var(--primary));color:hsl(0 0% 100%);box-shadow:var(--shadow-lg);transition:transform .2s" class="pulse-el">
+<svg class="w-7 h-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg>
+</span>
+</a>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+  const NAV = [
+    { label:'Início', route:'/' },
+    { label:'Sobre Nós', route:'/sobre' },
+    { label:'Produtos', route:'/produtos' },
+    { label:'Perguntas', route:'/faq' },
+    { label:'Contato', route:'/contato' }
+  ];
+  const PROD = [
+    { slug:'kit-cadernos', name:'Kit com 3 Cadernos Pedagógicos', short:'Tres cadernos digitais que caminham juntos na alfabetizacao: leitura e interpretacao, producao textual e generos textuais.', tag:'Kit Digital', category:'Alfabetizacao • Leitura • Escrita', image:'assets/kit-cadernos.png', color:'green', checkout:'https://pay.kiwify.com.br/zurpa0Y', bullets:['100 textos para leitura e interpretacao','50 paginas de producao textual com imagens','50 paginas de generos textuais variados','Ideal para todos os niveis de aprendizagem'] },
+    { slug:'manual-tdah', name:'Guia para Pais de Criancas com TDAH', short:'Um manual acolhedor com estrategias praticas para apoiar o dia a dia de criancas com TDAH — foco, rotina e emocoes.', tag:'E-book', category:'Apoio as familias • TDAH', image:'assets/manual-tdah.png', color:'gold', checkout:'https://pay.kiwify.com.br/hxduBt6?afid=FAER7YAG', bullets:['Compreensao real do TDAH, sem mitos','Rotinas produtivas e ferramentas visuais','Estrategias de foco e controle emocional','Parceria com a escola e apoio profissional'] }
+  ];
+  const WA_URL = 'https://wa.me/5521998187520?text=Ola!%20Vim%20pelo%20site%20da%20Educa%20Pri%20%F0%9F%92%9A%20quero%20saber%20mais%20sobre%20os%20materiais.';
+  const WA_LABEL = '+55 21 99818-7520';
+
+  // Build product card HTML
+  function productCard(p, idx) {
+    const bg = p.color==='green'?'hsl(var(--accent))':'hsl(44 95% 90%)';
+    const chip = p.color==='green'?'background:hsl(var(--primary));color:hsl(0 0% 100%)':'background:hsl(var(--gold));color:hsl(var(--ink))';
+    return '<a href="#/produtos/'+p.slug+'" class="card-sticker border-dashed-gold" style="display:block;padding:24px;text-decoration:none;transition:all .3s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'var(--shadow-xl)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,'+bg+',hsl(var(--surface)));display:flex;align-items:center;justify-content:center;margin-bottom:20px"><img src="'+p.image+'" alt="" style="width:100%;height:100%;object-fit:contain;padding:8px;transition:transform .5s" onmouseover="this.style.transform=\'scale(1.06)\'" onmouseout="this.style.transform=\'\'"><span style="position:absolute;top:12px;right:12px;font-size:20px;color:hsl(var(--gold));animation:wiggle 3s ease-in-out infinite">&#x2726;</span></div><div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><span style="display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:9999px;text-transform:uppercase;letter-spacing:0.025em;'+chip+'">'+p.tag+'</span><span style="font-size:14px;color:hsl(var(--ink-muted))">'+p.category+'</span></div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:clamp(18px,2vw,24px);color:hsl(var(--ink));line-height:1.2;margin-bottom:8px">'+p.name+'</h3><p style="font-size:16px;color:hsl(var(--ink-muted));line-height:1.625;margin-bottom:20px">'+p.short+'</p><span style="display:inline-flex;align-items:center;gap:8px;color:hsl(var(--cta));font-weight:600">Ver detalhes <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>';
+  }
+
+  const PAGES = {
+    '/': buildHome,
+    '/sobre': buildAbout,
+    '/produtos': buildProducts,
+    '/produtos/kit-cadernos': function(){ return buildProductDetail(0); },
+    '/produtos/manual-tdah': function(){ return buildProductDetail(1); },
+    '/faq': buildFaq,
+    '/contato': buildContact
+  };
+
+  function buildHome() {
+    return `<section data-od-id="hero" class="bg-cream-gradient" style="position:relative;overflow:hidden">
+<div aria-hidden class="pointer-events-none" style="position:absolute;inset:0;overflow:hidden">
+<span style="position:absolute;top:64px;left:24px;font-size:30px;color:hsl(var(--gold));animation:float 4s ease-in-out infinite">&#x2726;</span>
+<span style="position:absolute;top:128px;right:40px;font-size:24px;color:hsl(var(--brand-pink));animation:float-slow 6s ease-in-out infinite">&#x273F;</span>
+<span style="position:absolute;bottom:96px;left:25%;font-size:24px;color:hsl(var(--primary));animation:float 4s ease-in-out infinite">&#x2605;</span>
+<span style="position:absolute;top:50%;right:33%;font-size:18px;color:hsl(var(--gold));animation:float-slow 6s ease-in-out infinite">&#x2727;</span>
+<svg style="position:absolute;bottom:-24px;right:16px;width:96px;height:96px;color:hsl(var(--gold)/0.4)" viewBox="0 0 100 100" fill="none"><path d="M5 50 Q 25 20, 50 50 T 95 50" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"/></svg>
+</div>
+<div class="container-site" style="padding:64px 20px">
+<div class="reveal" style="max-width:100%">
+<div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:center">
+<div>
+<span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink));box-shadow:var(--shadow-xs)"><span aria-hidden>&#x1F31F;</span> Criacoes da Pri</span>
+<h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3.5rem);line-height:1.05;color:hsl(var(--ink))">Aprender com <span class="highlight-marker">carinho</span>, <span style="color:hsl(var(--brand-blue))">criatividade</span> e proposito.</h1>
+<p style="margin-top:20px;font-size:clamp(16px,2.5vw,20px);color:hsl(var(--ink-muted));line-height:1.625;max-width:36rem">Materiais pedagogicos digitais para acompanhar cada passo da alfabetizacao — pensados para professores, familias e terapeutas que acreditam na educacao como um ato de amor.</p>
+<div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px">
+<a href="#/produtos" class="btn btn-primary btn-lg btn-pulse-gold">Conhecer nossos materiais <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+<a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar no WhatsApp</a>
+</div>
+<div style="margin-top:40px;display:flex;align-items:center;gap:20px;font-size:14px;color:hsl(var(--ink-muted))">
+<div style="display:flex" aria-hidden><span style="width:32px;height:32px;border-radius:9999px;background:hsl(var(--gold));display:flex;align-items:center;justify-content:center;font-size:18px;margin-right:-8px">&#x1F4DA;</span><span style="width:32px;height:32px;border-radius:9999px;background:hsl(var(--accent));display:flex;align-items:center;justify-content:center;font-size:18px;margin-right:-8px">&#x270F;&#xFE0F;</span><span style="width:32px;height:32px;border-radius:9999px;background:hsl(340 82% 88%);display:flex;align-items:center;justify-content:center;font-size:18px">&#x1F49B;</span></div>
+<p>Para <strong style="color:hsl(var(--ink))">professores</strong>, <strong style="color:hsl(var(--ink))">pais</strong> e <strong style="color:hsl(var(--ink))">terapeutas</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="golden-ribbon"></div>
+</section>
+<section data-od-id="diferenciais" style="padding:64px 0;background:hsl(var(--bg))">
+<div class="container-site">
+<div style="max-width:42rem;margin:0 auto 40px;text-align:center">
+<span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Nosso jeito</span>
+<h2 class="section-title">Por que a Educa Pri e <span class="highlight-marker">diferente</span></h2>
+<p class="section-subtitle">Cada material nasce da vontade de tornar o aprendizado leve, respeitoso e cheio de significado.</p>
+</div>
+<div id="diff-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px"></div>
+</div>
+</section>
+<section data-od-id="sobre-home" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)">
+<div class="container-site">
+<div style="display:grid;grid-template-columns:1fr;gap:40px;align-items:center">
+<div class="reveal">
+<span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:4px 12px;font-size:14px;font-weight:600;color:hsl(var(--ink))">Sobre a marca</span>
+<h2 style="margin-top:16px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.2;color:hsl(var(--ink))">Educacao que <span class="highlight-marker">acolhe</span> e desperta.</h2>
+<p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">A Educa Pri nasceu do desejo de tornar o aprendizado mais leve, divertido e acessivel para todas as criancas. Criamos recursos digitais com carinho, criatividade e proposito, respeitando o tempo de cada uma.</p>
+<div style="margin-top:24px">
+<a href="#/sobre" class="btn btn-outline btn-md">Conhecer nossa historia <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</div>
+<div class="reveal">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="border-radius:16px;padding:24px;text-align:center;border:2px dashed hsl(var(--gold));background:hsl(var(--accent))"><div style="font-size:36px;margin-bottom:8px" aria-hidden>&#x1F4D6;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Alfabetizacao</div></div>
+<div style="border-radius:16px;padding:24px;text-align:center;border:2px dashed hsl(var(--gold));background:hsl(148 50% 88%)"><div style="font-size:36px;margin-bottom:8px" aria-hidden>&#x1F9E9;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">TEA & TDAH</div></div>
+<div style="border-radius:16px;padding:24px;text-align:center;border:2px dashed hsl(var(--gold));background:hsl(44 95% 88%)"><div style="font-size:36px;margin-bottom:8px" aria-hidden>&#x1F4A1;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Aprendizagem</div></div>
+<div style="border-radius:16px;padding:24px;text-align:center;border:2px dashed hsl(var(--gold));background:hsl(340 82% 92%)"><div style="font-size:36px;margin-bottom:8px" aria-hidden>&#x1F58D;&#xFE0F;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Coord. motora</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section data-od-id="produtos-home" style="padding:64px 0;background:hsl(var(--bg))">
+<div class="container-site">
+<div style="max-width:42rem;margin:0 auto 40px;text-align:center">
+<span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Materiais</span>
+<h2 class="section-title">Nossos <span class="highlight-marker">produtos</span></h2>
+<p class="section-subtitle">Recursos digitais pensados para o dia a dia da crianca — chegam prontinhos para voce imprimir ou usar na tela.</p>
+</div>
+<div id="home-prod-grid" style="display:grid;grid-template-columns:1fr;gap:24px"></div>
+<div style="margin-top:40px;text-align:center">
+<a href="#/produtos" class="btn btn-secondary btn-md">Ver todos os materiais <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</div>
+</section>
+<section data-od-id="para-quem" style="padding:64px 0;background:hsl(var(--surface-alt))">
+<div class="container-site">
+<div style="max-width:42rem;margin:0 auto 40px;text-align:center">
+<span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem</span>
+<h2 class="section-title">Feitos com amor, para quem ensina com amor.</h2>
+</div>
+<div id="forwhom-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px"></div>
+</div>
+</section>
+<section data-od-id="cta-final" style="padding:80px 0;background:hsl(var(--bg))">
+<div class="container-narrow">
+<div class="reveal">
+<div class="card-sticker border-dashed-gold" style="padding:32px;text-align:center">
+<div style="font-size:48px;margin-bottom:12px" aria-hidden>&#x1F49A;</div>
+<h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,4vw,2.5rem);line-height:1.2;color:hsl(var(--ink))">Vamos <span class="highlight-marker">ensinar juntos</span>?</h2>
+<p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted))">Escolha um material, fale com a gente ou siga o nosso Instagram para acompanhar novidades.</p>
+<div style="margin-top:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+<a href="#/produtos" class="btn btn-primary btn-lg">Explorar materiais</a>
+<a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar no WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+</section>`;
+  }
+
+  function buildAbout() {
+    return `<section data-od-id="sobre-hero" class="bg-cream-gradient">
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Inicio</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F337; Nossa historia</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;max-width:48rem;margin:20px auto 0;color:hsl(var(--ink))">Educacao que nasce do <span class="highlight-marker">coracao</span>.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin:20px auto 0;line-height:1.625">Somos a Educa Pri. Criamos materiais pedagogicos digitais para acompanhar cada passo do aprendizado — com respeito, delicadeza e proposito.</p></div></div>
+</section>
+<section data-od-id="sobre-missao" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div class="reveal"><div class="card-sticker" style="padding:32px"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">A Educa Pri nasceu do desejo de tornar o aprendizado mais <span class="highlight-marker">leve</span>, divertido e acessivel para todas as criancas.</p><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">Criamos materiais pedagogicos digitais com carinho, criatividade e proposito, pensando em apoiar professores, pais, terapeutas e todos que acreditam no poder da educacao. Nosso compromisso e desenvolver atividades que estimulem a aprendizagem de forma ludica, respeitando o ritmo de cada crianca.</p></div></div>
+<div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:32px 0"><span style="height:2px;width:64px;background:hsl(var(--gold));border-radius:9999px"></span><span style="color:hsl(var(--gold));font-size:20px">&#x2726;</span><span style="height:2px;width:64px;background:hsl(var(--gold));border-radius:9999px"></span></div>
+<div id="about-cards" style="display:grid;grid-template-columns:1fr;gap:20px"></div></div></section>
+<section data-od-id="sobre-citacao" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-narrow"><div class="reveal"><div style="border-radius:24px;background:hsl(var(--surface));border:2px dashed hsl(var(--gold));padding:32px;text-align:center"><img src="assets/logo-educapri.jpg" alt="Logo" style="width:80px;height:80px;border-radius:9999px;margin:0 auto 16px;outline:2px solid hsl(var(--gold)/0.6);outline-offset:-2px"><p style="font-family:Caveat,cursive;font-weight:600;font-size:clamp(1.75rem,4vw,2.5rem);color:hsl(var(--gold-deep));line-height:1.2">&ldquo;Ensinar com amor faz toda a diferenca.&rdquo;</p><p style="margin-top:12px;color:hsl(var(--ink-muted))">— Educa Pri</p></div></div></div></section>
+<section data-od-id="sobre-areas" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="max-width:42rem;margin-bottom:40px"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Areas que tocamos</span><h2 class="section-title">O que voce encontra por aqui</h2><p class="section-subtitle">Recursos para diferentes momentos do aprendizado e da rotina.</p></div>
+<div id="about-areas" style="display:grid;grid-template-columns:1fr;gap:16px"></div>
+<div style="margin-top:40px;text-align:center;display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+<a href="#/produtos" class="btn btn-primary btn-lg">Ver produtos <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+<a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-4 h-4" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar no WhatsApp</a>
+</div></div></section>`;
+  }
+  function buildProducts() {
+    var html = `<section data-od-id="produtos-hero" class="bg-cream-gradient">
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Inicio</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F4DA; Nossos materiais</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Materiais digitais para <span class="highlight-marker">ensinar com carinho</span>.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Baixe, imprima e use quando quiser. Ideais para professores, familias e terapeutas.</p></div></div>
+</section>
+<section data-od-id="produtos-grid" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-site"><div id="prod-grid" style="display:grid;grid-template-columns:1fr;gap:24px"></div></div></section>
+<section data-od-id="produtos-breve" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Em breve</span><h2 class="section-title">Mais materiais chegando</h2><p class="section-subtitle">Estamos preparando novos cadernos e guias com muito carinho. Fique de olho por aqui!</p></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px">
+<div class="card-sticker" style="padding:24px;text-align:center;opacity:0.8"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Coord. motora</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparacao</div></div>
+<div class="card-sticker" style="padding:24px;text-align:center;opacity:0.8"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">TEA</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparacao</div></div>
+<div class="card-sticker" style="padding:24px;text-align:center;opacity:0.8"><div style="font-size:30px;margin-bottom:8px" aria-hidden>&#x2728;</div><div style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">Matematica</div><div style="font-size:14px;color:hsl(var(--ink-muted));margin-top:4px">Em preparacao</div></div>
+</div></div></section>`;
+    return html;
+  }
+  function buildProductDetail(idx) {
+    var p = PROD[idx];
+    if (!p) return '';
+    var isKit = idx === 0;
+    var bgGrad = isKit ? 'from-accent to-surface' : 'from-[hsl(44_95%_90%)] to-surface';
+    var tagStyle = isKit ? 'background:hsl(var(--primary));color:hsl(0 0% 100%)' : 'background:hsl(var(--gold));color:hsl(var(--ink))';
+    var tagIcon = isKit ? '&#x2726;' : '&#x1F9E0;';
+    var cadernosHtml = '';
+    if (isKit) {
+      var cadernos = [
+        ['&#x1F4D6;','hsl(var(--accent))','hsl(var(--primary))','Leitura e Interpretacao','100 textos curtos e ilustrados com perguntas de compreensao. Estimula leitura, vocabulario e raciocinio.','100 textos para leitura|Perguntas de interpretacao|Todos os niveis de aprendizagem'],
+        ['&#x1FAB6;','hsl(44 95% 88%)','hsl(var(--gold-deep))','Producao Textual','50 paginas com imagens em sequencia, comecos de historias e cenas unicas para inspirar a escrita criativa.','Imagens em sequencia|Textos para continuar|Cenas para inspirar a imaginacao'],
+        ['&#x1F5C2;&#xFE0F;','hsl(218 80% 92%)','hsl(var(--brand-blue))','Generos Textuais','Cartas, bilhetes, convites, listas, receitas, poemas, parlendas, fabulas, noticias e quadrinhos.','10 generos textuais|Leitura + interpretacao + producao|Atividades progressivas']
+      ];
+      cadernosHtml = '<section data-od-id="produto-cadernos" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-site"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> O que vem no kit</span><h2 class="section-title">Tres cadernos, um <span class="highlight-marker">so universo</span></h2><p class="section-subtitle">Cada caderno e pensado para uma etapa da alfabetizacao — e juntos formam uma jornada completa.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px">';
+      cadernos.forEach(function(c) {
+        cadernosHtml += '<div class="card-sticker border-dashed-gold" style="padding:24px"><div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:'+c[1]+';color:'+c[2]+'"><span style="font-size:24px">'+c[0]+'</span></div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">'+c[3]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+c[4]+'</p><ul style="margin-top:16px;list-style:none;display:flex;flex-direction:column;gap:8px">';
+        c[5].split('|').forEach(function(b) {
+          cadernosHtml += '<li style="display:flex;align-items:flex-start;gap:8px;color:hsl(var(--ink))"><svg class="w-5 h-5" style="color:hsl(var(--primary));flex-shrink:0;margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>'+b+'</span></li>';
+        });
+        cadernosHtml += '</ul></div>';
+      });
+      cadernosHtml += '</div></div></section>';
+    }
+    var topicsHtml = '';
+    if (!isKit) {
+      var topics = [
+        ['&#x1F9E0;','Compreendendo o TDAH','Mitos, verdades e como o cerebro da crianca funciona.'],
+        ['&#x1F4C5;','Rotinas produtivas','Planejamento diario, ferramentas visuais e previsibilidade.'],
+        ['&#x1F642;','Foco e concentracao','Estrategias praticas e o metodo Pomodoro adaptado.'],
+        ['&#x1F499;','Impulsividade e emocoes','Respiracao, relaxamento e controle emocional.'],
+        ['&#x1F393;','Aprendizado que funciona','Dicas para adaptar os estudos e a memorizacao.'],
+        ['&#x1F465;','Parceria com a escola','Como conversar, apoiar e buscar ajuda profissional.']
+      ];
+      topicsHtml = '<section data-od-id="produto-topicos" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-site"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> O que voce vai encontrar</span><h2 class="section-title">Temas abordados no guia</h2><p class="section-subtitle">Um passo a passo pratico, dividido em capitulos curtos e faceis de aplicar.</p></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px">';
+      topics.forEach(function(t) {
+        topicsHtml += '<div class="card-sticker" style="padding:24px"><div style="width:48px;height:48px;border-radius:12px;background:hsl(var(--accent));color:hsl(var(--primary));display:flex;align-items:center;justify-content:center;margin-bottom:12px"><span style="font-size:24px">'+t[0]+'</span></div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:18px;color:hsl(var(--ink))">'+t[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+t[2]+'</p></div>';
+      });
+      topicsHtml += '</div></div></section>';
+    }
+    // For whom
+    var forWhomHtml = '';
+    if (isKit) {
+      var fw = [['&#x1F469;&#x200D;&#x1F3EB;','Professores','Enriqueca aulas, projetos e reforco escolar.'],['&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;','Familias','Estude com carinho em casa, no tempo da crianca.'],['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versateis para atendimentos individuais.'],['&#x1F9E6;','Todos os niveis','Da alfabetizacao inicial a leitura fluente.']];
+      forWhomHtml = '<section data-od-id="produto-para-quem" style="padding:64px 0;background:linear-gradient(135deg,hsl(38 70% 94%) 0%,hsl(44 80% 90%) 100%)"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem serve</span><h2 class="section-title">Um material que caminha junto.</h2></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px">';
+      fw.forEach(function(f) {
+        forWhomHtml += '<div class="card-sticker" style="padding:20px;display:flex;align-items:flex-start;gap:16px"><span style="font-size:30px">'+f[0]+'</span><div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;color:hsl(var(--ink))">'+f[1]+'</h3><p style="color:hsl(var(--ink-muted))">'+f[2]+'</p></div></div>';
+      });
+      forWhomHtml += '</div></div></section>';
+    } else {
+      forWhomHtml = '<section data-od-id="produto-para-quem" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="max-width:42rem;margin:0 auto 40px;text-align:center"><span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem e</span><h2 class="section-title">Um apoio real para familias</h2></div><ul style="display:grid;grid-template-columns:1fr;gap:12px;list-style:none;padding:0">';
+      var fw2 = ['Pais e maes que buscam entender o TDAH sem julgamento','Responsaveis que querem uma rotina mais leve em casa','Familias em parceria com escola e profissionais','Cuidadores que desejam apoiar as emocoes da crianca'];
+      fw2.forEach(function(f) {
+        forWhomHtml += '<li style="display:flex;align-items:flex-start;gap:12px;border-radius:16px;background:hsl(var(--surface-alt));border:1px solid hsl(var(--border));padding:16px"><svg class="w-5 h-5" style="color:hsl(var(--primary));flex-shrink:0;margin-top:2px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span style="color:hsl(var(--ink))">'+f+'</span></li>';
+      });
+      forWhomHtml += '</ul><div style="margin-top:40px;border-radius:24px;border:2px dashed hsl(var(--gold));padding:32px;text-align:center;background:hsl(var(--surface))"><p style="font-family:Caveat,cursive;font-weight:600;font-size:clamp(1.5rem,3vw,2rem);color:hsl(var(--gold-deep))">&ldquo;O TDAH nao precisa ser um obstaculo intransponivel.&rdquo;</p></div></div></section>';
+    }
+    // CTA final
+    var finalCta = isKit
+      ? '<section data-od-id="produto-cta" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div class="reveal"><div class="card-sticker border-dashed-gold" style="padding:32px;text-align:center"><div style="font-size:48px;margin-bottom:12px" aria-hidden>&#x1F4D6;</div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,4vw,2.5rem);color:hsl(var(--ink))">Pronto para comecar essa <span class="highlight-marker">jornada</span>?</h2><p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted))">Baixe o kit completo, imprima ou use na tela — e traga a leitura para o dia a dia com carinho.</p><div style="margin-top:24px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px"><a href="'+p.checkout+'" target="_blank" class="btn btn-primary btn-lg btn-pulse-gold">Comprar agora <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="'+WA_URL+'" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar com a Pri</a></div></div></div></div></section>'
+      : '<section data-od-id="produto-cta" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px"><a href="'+p.checkout+'" target="_blank" class="btn btn-primary btn-lg btn-pulse-gold">Quero o guia <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="'+WA_URL+'" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar com a Pri</a></div></div></section>';
+
+    return `<section data-od-id="produto-hero" class="bg-cream-gradient">
+<div class="container-site" style="padding:32px 20px"><a href="#/produtos" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para Produtos</a></div>
+<div class="container-site" style="padding:0 20px 64px">
+<div style="display:grid;grid-template-columns:1fr;gap:40px;align-items:center">
+<div class="reveal-left"><div style="aspect-ratio:4/3;border-radius:24px;background:linear-gradient(135deg,${isKit?'hsl(var(--accent))':'hsl(44 95% 90%)'},hsl(var(--surface)));border:2px dashed hsl(var(--gold));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden"><img src="${p.image}" alt="" class="mockup-3d animate-float-mock" style="width:92%;height:92%;object-fit:contain"><span class="animate-wiggle" style="position:absolute;top:24px;left:24px;font-size:30px" aria-hidden>${tagIcon}</span><span class="animate-float-slow" style="position:absolute;bottom:24px;right:24px;font-size:30px" aria-hidden>${isKit?'&#x270F;&#xFE0F;':'&#x1F9E0;'}</span><span aria-hidden class="pointer-events-none" style="position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,hsl(0 0% 100% / 0.45) 50%,transparent 65%);background-size:250% 100%;background-position:130% 0;border-radius:inherit"></span></div></div>
+<div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;${tagStyle};font-size:12px;font-weight:700;padding:4px 12px;text-transform:uppercase;letter-spacing:0.025em">${p.tag}</span><h1 style="margin-top:16px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.75rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">${isKit ? 'Kit com <span class="highlight-marker">3 Cadernos</span> Pedagogicos' : 'Guia para Pais de <span class="highlight-marker">Criancas com TDAH</span>'}</h1><p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">${isKit?'Tres cadernos digitais que se completam para acompanhar a crianca da leitura a escrita autoral — com atividades bonitas, claras e cheias de proposito.':'Um manual respeitoso e pratico, criado para caminhar ao seu lado. Estrategias reais para acolher, organizar a rotina e apoiar o desenvolvimento do seu filho.'}</p>
+<div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px"><a href="${p.checkout}" target="_blank" class="btn btn-primary btn-lg btn-pulse-gold">Comprar agora <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a><a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Tirar duvidas</a></div>
+<p style="margin-top:16px;font-size:14px;color:hsl(var(--ink-soft))">${isKit?'Acesso digital • Pagamento via Kiwify':'E-book digital • Pagamento via Kiwify'}</p></div></div></div></section>
+${isKit?'':'<section data-od-id="produto-descricao" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div class="reveal"><div class="card-sticker" style="padding:32px"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">Se voce e pai ou mae de uma crianca com TDAH, sabe que a jornada pode ser desafiadora. Este guia foi criado para <span class="highlight-marker">te dar ferramentas praticas</span> para lidar com o dia a dia com mais leveza e proposito.</p><p style="margin-top:16px;font-size:18px;color:hsl(var(--ink-muted));line-height:1.625">Aqui voce encontra explicacoes claras sobre o TDAH e um passo a passo carinhoso para construir rotinas, ampliar o foco, apoiar as emocoes e fortalecer a autoestima do seu filho.</p></div></div></div></section>'}
+${cadernosHtml}
+${topicsHtml}
+${forWhomHtml}
+${finalCta}`;
+  }
+  function buildFaq() {
+    var faqs = [
+      {q:'Como faco para comprar um material?', a:'E simples: acesse a pagina do produto, clique em Comprar agora e voce sera direcionado ao checkout seguro da Kiwify. Basta finalizar o pagamento para receber o acesso.'},
+      {q:'Os materiais sao digitais ou impressos?', a:'Todos os nossos materiais sao 100% digitais em PDF. Voce pode usar direto na tela ou imprimir quantas vezes quiser para usar em casa, na escola ou no consultorio.'},
+      {q:'Como recebo o material depois da compra?', a:'Apos a confirmacao do pagamento, voce recebe automaticamente um e-mail da Kiwify com o link para acessar e baixar seu material.'},
+      {q:'Consigo acessar o material sempre que quiser?', a:'Sim! Depois de baixar, o arquivo fica com voce para uso ilimitado. Voce tambem pode acessar novamente pelo seu login na Kiwify.'},
+      {q:'Como funciona o suporte?', a:'Nosso suporte e feito diretamente pelo WhatsApp. Estamos por aqui para tirar duvidas sobre acesso, uso pedagogico e para ouvir suas ideias com carinho.'},
+      {q:'Os materiais servem para qualquer idade?', a:'Nossos cadernos sao pensados para diferentes niveis de aprendizagem, especialmente para os anos iniciais. Cada pagina descreve as habilidades trabalhadas para voce adaptar ao ritmo da crianca.'},
+      {q:'Voces tem materiais para criancas com TEA ou TDAH?', a:'Sim! Ja temos o Guia para Pais de Criancas com TDAH e estamos preparando novos recursos inclusivos com muito cuidado.'}
+    ];
+    var items = '';
+    faqs.forEach(function(f,i) {
+      items += '<div class="accordion-item"><button class="accordion-trigger" onclick="var p=this.closest(\'.accordion-item\');p.classList.toggle(\'open\')"><span style="color:hsl(var(--gold));font-size:20px;line-height:1;margin-top:2px;flex-shrink:0">&#x2753;</span><span>'+f.q+'</span><svg class="accordion-chevron" style="flex-shrink:0;margin-left:auto;transition:transform .3s;width:20px;height:20px;color:hsl(var(--ink-muted))" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="accordion-content"><div class="accordion-inner">'+f.a+'</div></div></div>';
+    });
+    return `<section data-od-id="faq-hero" class="bg-cream-gradient">
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Inicio</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F4AC; Perguntas Frequentes</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Vamos <span class="highlight-marker">tirar suas duvidas</span>?</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Se ainda ficar alguma duvida, chama a gente no WhatsApp — vamos adorar te ouvir.</p></div></div>
+</section>
+<section data-od-id="faq-accordion" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="display:flex;flex-direction:column;gap:12px">${items}</div><div style="margin-top:48px;text-align:center"><a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg btn-pulse-whatsapp"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Falar no WhatsApp</a></div></div></section>`;
+  }
+  function buildContact() {
+    return `<section data-od-id="contato-hero" class="bg-cream-gradient">
+<div class="container-site" style="padding:32px 20px 8px"><a href="#/" class="back-link" style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface)/0.8);backdrop-filter:blur(8px);border:1px solid hsl(var(--border));padding:8px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink-muted));text-decoration:none;transition:all .2s" onmouseover="this.style.color='hsl(var(--cta))';this.style.borderColor='hsl(var(--cta)/0.6)'" onmouseout="this.style.color='';this.style.borderColor=''"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Voltar para o Inicio</a></div>
+<div class="container-site" style="padding:64px 20px;text-align:center"><div class="reveal"><span style="display:inline-flex;align-items:center;gap:8px;border-radius:9999px;background:hsl(var(--surface));border:1px solid hsl(var(--gold)/0.5);padding:6px 16px;font-size:14px;font-weight:600;color:hsl(var(--ink))">&#x1F48C; Vamos conversar</span><h1 style="margin-top:20px;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3rem);line-height:1.1;color:hsl(var(--ink))">Estamos <span class="highlight-marker">pertinho</span> de voce.</h1><p style="margin-top:20px;font-size:18px;color:hsl(var(--ink-muted));max-width:36rem;margin-left:auto;margin-right:auto">Adoramos ouvir professores, familias e terapeutas. Chame a gente no canal que preferir.</p></div></div>
+</section>
+<section data-od-id="contato-canais" style="padding:64px 0;background:hsl(var(--bg))"><div class="container-narrow"><div style="display:grid;grid-template-columns:1fr;gap:24px">
+<div class="reveal"><a href="${WA_URL}" target="_blank" class="card-sticker border-dashed-gold" style="display:block;padding:32px;text-align:center;transition:all .3s;text-decoration:none" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="width:56px;height:56px;border-radius:9999px;background:hsl(var(--primary));color:hsl(0 0% 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''"><svg class="w-7 h-7" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg></div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">WhatsApp</h2><p style="margin-top:8px;color:hsl(var(--ink-muted))">Resposta rapida e carinhosa</p><p style="margin-top:16px;font-weight:600;color:hsl(var(--primary))">+55 21 99818-7520</p></a></div>
+<div class="reveal"><a href="https://www.instagram.com/criacoesdapri21/" target="_blank" class="card-sticker border-dashed-gold" style="display:block;padding:32px;text-align:center;transition:all .3s;text-decoration:none" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow=''"><div style="width:56px;height:56px;border-radius:9999px;background:hsl(var(--brand-pink));color:hsl(0 0% 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;transition:transform .2s" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform=''"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><h2 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">Instagram</h2><p style="margin-top:8px;color:hsl(var(--ink-muted))">Novidades, bastidores e dicas</p><p style="margin-top:16px;font-weight:600;color:hsl(var(--brand-blue))">@criacoesdapri21</p></a></div>
+</div>
+<div class="reveal" style="margin-top:40px"><div style="border-radius:24px;background:hsl(var(--surface-alt));padding:32px;text-align:center;border:1px solid hsl(var(--border))"><p style="font-size:18px;color:hsl(var(--ink));line-height:1.625">Cada mensagem e lida com atencao. Aqui, a gente acredita que <span class="highlight-marker">ensinar com amor</span> faz toda a diferenca.</p><div style="margin-top:24px"><a href="${WA_URL}" target="_blank" class="btn btn-whatsapp btn-lg btn-pulse-whatsapp"><svg class="w-5 h-5" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.29c-.28-.14-1.63-.8-1.88-.9-.25-.09-.44-.14-.62.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.22-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.42-.48.14-.16.18-.28.28-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.72.34-.25.28-.94.92-.94 2.25 0 1.33.97 2.62 1.1 2.8.14.18 1.9 2.9 4.6 4.07.64.28 1.14.44 1.53.56.64.2 1.22.17 1.68.1.51-.08 1.63-.66 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.11-.25-.18-.53-.32ZM16.04 4C9.93 4 5 8.93 5 15.04c0 1.94.51 3.83 1.47 5.49L5 27l6.66-1.44c1.6.87 3.4 1.33 5.24 1.33h.01c6.11 0 11.04-4.93 11.04-11.04 0-2.95-1.15-5.72-3.23-7.8A11.02 11.02 0 0 0 16.04 4Zm.01 20.06h-.01a9.14 9.14 0 0 1-4.66-1.28l-.33-.2-3.95.85.85-3.85-.22-.35a9.02 9.02 0 0 1-1.4-4.85c0-5.02 4.08-9.1 9.1-9.1 2.43 0 4.71.95 6.43 2.67a9.03 9.03 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.09 9.1Z"/></svg> Conversar agora</a></div></div></div></div></section>`;
+  }
+
+  // Router
+  function route() {
+    const hash = location.hash.replace(/^#/, '') || '/';
+    const main = document.getElementById('content');
+    if (!main) return;
+
+    // page builder
+    const pageFn = PAGES[hash];
+    if (!pageFn) {
+      main.innerHTML = '<div style="text-align:center;padding:80px 20px"><h1>404</h1><p>Pagina nao encontrada</p><a href="#/" class="btn btn-primary btn-md" style="margin-top:20px;display:inline-block">Voltar ao Inicio</a></div>';
+    } else {
+      main.innerHTML = pageFn();
+    }
+
+    // Dynamic content fill
+    setTimeout(function() {
+      fillDiffs();
+      fillForWhom();
+      fillHomeProducts();
+      fillAboutCards();
+      fillAboutAreas();
+      fillProdGrid();
+      observeReveal();
+      setupFaqAccordion();
+    }, 10);
+
+    // Nav active
+    document.querySelectorAll('.nav-item').forEach(function(a) {
+      const route = a.getAttribute('data-route');
+      a.style.background = route === hash ? 'hsl(var(--accent))' : '';
+      a.style.color = route === hash ? 'hsl(var(--primary))' : 'hsl(var(--ink))';
+    });
+  }
+
+  function fillDiffs() {
+    var grid = document.getElementById('diff-grid');
+    if (!grid || grid.children.length > 0) return;
+    var items = [
+      ['&#x1F4D6;','Feito por educadora','Materiais criados com carinho, dentro da pratica de sala de aula.'],
+      ['&#x2728;','Aprender brincando','Atividades ludicas que respeitam o ritmo de cada crianca.'],
+      ['&#x1F3A8;','Design pensado','Layouts limpos, coloridos e organizados para imprimir e usar.'],
+      ['&#x1F9E9;','Inclusivo','Recursos que apoiam criancas com TEA, TDAH e outras necessidades.'],
+      ['&#x1F49A;','Para toda a familia','Um apoio real para professores, pais e terapeutas.'],
+      ['&#x1F512;','Acesso digital vitalicio','Baixe, imprima e use quantas vezes quiser, no seu tempo.']
+    ];
+    items.forEach(function(d,i) {
+      var colors = ['hsl(var(--accent))','hsl(44 95% 88%)','hsl(218 80% 94%)','hsl(var(--accent))','hsl(44 95% 88%)','hsl(218 80% 94%)'];
+      grid.innerHTML += '<div class="card-sticker reveal" style="padding:24px;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'var(--shadow-xl)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:'+colors[i]+';color:'+(i%2===0?'hsl(var(--primary))':'hsl(var(--gold-deep))')+'"><span style="font-size:24px">'+d[0]+'</span></div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:18px;color:hsl(var(--ink));margin-bottom:8px">'+d[1]+'</h3><p style="font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+d[2]+'</p></div>';
+    });
+    observeReveal();
+  }
+
+  function fillForWhom() {
+    var grid = document.getElementById('forwhom-grid');
+    if (!grid || grid.children.length > 0) return;
+    var items = [
+      ['&#x1F469;&#x200D;&#x1F3EB;','Professores','Materiais prontos para enriquecer aulas e projetos.'],
+      ['&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466;','Familias','Um apoio afetuoso para estudar juntos em casa.'],
+      ['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versateis para atendimentos e intervencoes.']
+    ];
+    items.forEach(function(d) {
+      grid.innerHTML += '<div class="card-sticker reveal" style="padding:28px;text-align:center;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'var(--shadow-xl)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="font-size:48px;margin-bottom:12px" aria-hidden>'+d[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">'+d[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted))">'+d[2]+'</p></div>';
+    });
+    observeReveal();
+  }
+
+  function fillHomeProducts() {
+    var grid = document.getElementById('home-prod-grid');
+    if (!grid || grid.children.length > 0) return;
+    PROD.forEach(function(p,i) {
+      grid.innerHTML += productCard(p,i);
+    });
+  }
+
+  function fillAboutCards() {
+    var grid = document.getElementById('about-cards');
+    if (!grid || grid.children.length > 0) return;
+    var cards = [
+      ['&#x1F331;','Nossa missao','Tornar o aprender acessivel, afetuoso e cheio de significado para toda infancia.'],
+      ['&#x1F49B;','Nosso proposito','Apoiar quem educa, ensinando com amor e organizacao.'],
+      ['&#x2728;','Nossos valores','Cuidado, criatividade, inclusao e respeito ao ritmo de cada crianca.'],
+      ['&#x1F4DA;','Nosso jeito','Materiais bonitos, claros e prontinhos para usar em casa, na escola ou no consultorio.']
+    ];
+    cards.forEach(function(c) {
+      grid.innerHTML += '<div class="card-sticker reveal" style="padding:24px"><div style="font-size:30px;margin-bottom:8px" aria-hidden>'+c[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:18px;color:hsl(var(--ink))">'+c[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted));line-height:1.625">'+c[2]+'</p></div>';
+    });
+    observeReveal();
+  }
+  function fillAboutAreas() {
+    var grid = document.getElementById('about-areas');
+    if (!grid || grid.children.length > 0) return;
+    var areas = ['Alfabetizacao','Leitura e interpretacao','Producao textual','Coodenacao motora','Atencao e concentracao','Materiais para TEA, TDAH e outras necessidades'];
+    areas.forEach(function(a) {
+      grid.innerHTML += '<div style="display:flex;align-items:center;gap:12px;border-radius:16px;background:hsl(var(--surface-alt));border:1px solid hsl(var(--border));padding:16px"><span style="width:36px;height:36px;border-radius:9999px;background:hsl(var(--accent));color:hsl(var(--primary));display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0">&#x2713;</span><span style="font-weight:600;color:hsl(var(--ink))">'+a+'</span></div>';
+    });
+  }
+  function fillProdGrid() {
+    var grid = document.getElementById('prod-grid');
+    if (!grid || grid.children.length > 0) return;
+    PROD.forEach(function(p,i) {
+      grid.innerHTML += productCard(p,i);
+    });
+  }
+  function observeReveal() {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      if (el.classList.contains('is-visible')) return;
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    });
+  }
+
+  function setupFaqAccordion() {
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn) {
+      btn.onclick = function() {
+        var item = this.closest('.accordion-item');
+        item.classList.toggle('open');
+      };
+    });
+  }
+
+  // Init
+  window.addEventListener('hashchange', route);
+  window.addEventListener('load', function() {
+    // Header scroll
+    var header = document.getElementById('header');
+    var logo = document.getElementById('h-logo');
+    window.addEventListener('scroll', function() {
+      var s = window.scrollY > 8;
+      header.className = 'header ' + (s ? 'header-scrolled' : 'header-default');
+      if (logo) logo.style.width = s ? '40px' : '48px';
+      if (logo) logo.style.height = s ? '40px' : '48px';
+    });
+
+    // Hamburger
+    document.getElementById('hamburger').onclick = function() {
+      var menu = document.getElementById('mobile-menu');
+      var isOpen = menu.style.display === 'block';
+      menu.style.display = isOpen ? 'none' : 'block';
+      document.getElementById('menu-open').style.display = isOpen ? 'flex' : 'none';
+      document.getElementById('menu-close').style.display = isOpen ? 'none' : 'flex';
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    };
+    document.querySelectorAll('.mob-link').forEach(function(a) {
+      a.onclick = function() {
+        document.getElementById('mobile-menu').style.display = 'none';
+        document.getElementById('menu-open').style.display = 'flex';
+        document.getElementById('menu-close').style.display = 'none';
+        document.body.style.overflow = '';
+      };
+    });
+
+    // Fab tooltip
+    var fab = document.getElementById('whatsapp-fab');
+    if (fab) {
+      fab.onmouseenter = function() { var t = document.getElementById('fab-tip'); if (t && window.innerWidth >= 640) t.style.display = 'block'; };
+      fab.onmouseleave = function() { var t = document.getElementById('fab-tip'); if (t) t.style.display = 'none'; };
+    }
+
+    route();
+  });
+})();
+</script>
+</body>
+</html>
