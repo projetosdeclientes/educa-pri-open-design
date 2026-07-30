@@ -400,13 +400,14 @@ a:focus-visible,.btn:focus-visible,.accordion-trigger:focus-visible{outline:2px 
 </div>
 </div>
 </section>
-<section data-od-id="para-quem" style="padding:64px 0;background:hsl(var(--surface-alt))">
+<section data-od-id="para-quem" class="bg-cream-gradient" style="padding:64px 0">
 <div class="container-site">
 <div style="max-width:42rem;margin:0 auto 40px;text-align:center">
 <span class="section-eyebrow"><span aria-hidden>&#x2728;</span> Para quem</span>
 <h2 class="section-title">Feitos com amor, para quem ensina com amor.</h2>
 </div>
-<div id="forwhom-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px"></div>
+<div id="forwhom-grid" style="display:grid;grid-template-columns:1fr;gap:20px"></div>
+<style>@media(min-width:640px){#forwhom-grid{grid-template-columns:1fr 1fr 1fr!important}}</style>
 </div>
 </section>
 <section data-od-id="cta-final" style="padding:80px 0;background:hsl(var(--bg))">
@@ -646,7 +647,7 @@ ${finalCta}`;
       ['&#x1F9D1;&#x200D;&#x2695;&#xFE0F;','Terapeutas','Recursos versáteis para atendimentos e intervenções.']
     ];
     items.forEach(function(d) {
-      grid.innerHTML += '<div class="card-sticker reveal" style="padding:28px;text-align:center;transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.boxShadow=\'var(--shadow-xl)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'\'"><div style="font-size:48px;margin-bottom:12px" aria-hidden>'+d[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">'+d[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted))">'+d[2]+'</p></div>';
+      grid.innerHTML += '<div class="card-sticker reveal hover-lift" style="padding:28px;text-align:center;height:100%"><div style="font-size:48px;margin-bottom:12px" aria-hidden>'+d[0]+'</div><h3 style="font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:20px;color:hsl(var(--ink))">'+d[1]+'</h3><p style="margin-top:8px;font-size:16px;color:hsl(var(--ink-muted))">'+d[2]+'</p></div>';
     });
     observeReveal();
   }
