@@ -736,8 +736,8 @@ ${finalCta}`;
     window.addEventListener('scroll', function() {
       var s = window.scrollY > 8;
       header.className = 'header ' + (s ? 'header-scrolled' : 'header-default');
-      if (logo) logo.style.width = s ? '40px' : '48px';
-      if (logo) logo.style.height = s ? '40px' : '48px';
+      var big = window.innerWidth >= 640 ? '56px' : '48px';
+      if (logo){ logo.style.width = s ? '40px' : big; logo.style.height = s ? '40px' : big; }
     });
 
     // Hamburger
