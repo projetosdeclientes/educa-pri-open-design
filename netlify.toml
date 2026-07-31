@@ -1,0 +1,37 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/ms7qsjda-auditoria-open-design.md"
+  to = "/"
+  status = 404
+
+[[redirects]]
+  from = "/brand-spec.md"
+  to = "/"
+  status = 404
+
+[[redirects]]
+  from = "/ms888ll3-image.png"
+  to = "/"
+  status = 404
+
+[[redirects]]
+  from = "/ms7x1l5i-image.png"
+  to = "/"
+  status = 404
+
+[[redirects]]
+  from = "/index.html.artifact.json"
+  to = "/"
+  status = 404
+
+[[redirects]]
+  from = "/.od-skills/*"
+  to = "/"
+  status = 404
+
+[[redirects]]
+  from = "/educa-pri-main/*"
+  to = "/"
+  status = 404
